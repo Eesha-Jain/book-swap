@@ -1,20 +1,75 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import "react-native-gesture-handler";
+import { StatusBar } from "expo-status-bar";
+import React, { useState, useEffect } from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import storage from "@react-native-async-storage/async-storage";
+import * as Updates from "expo-updates";
+
+import useCachedResources from "./hooks/useCachedResources";
+import useColorScheme from "./hooks/useColorScheme";
+
+import FirstScreen from "./screens/FirstScreen";
+import Navigation from "./navigation";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+const Stack = createStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const [route, setRoute] = useState(true);
+  const isLoadingComplete = useCachedResources();
+  const colorScheme = useColorScheme();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  //Display "FirstScreen" page if user's first time on app. Otherwise, navigate to the "Home" page
+  const makeRequest = async () => {
+    storage.getItem("firsttime").then((item) => {
+      if (item) {
+        setRoute("Tabs");
+      } else {
+        setRoute("FirstScreen");
+      }
+    });
+  };
+
+  //Check whether update is available for app. If so, automatically update the app.
+  const checkUpdate = async () => {
+    try {
+      const update = await Updates.checkForUpdateAsync();
+      if (update.isAvailable) {
+        await Updates.fetchUpdateAsync();
+        Updates.reloadAsync();
+      }
+    } catch (e) {}
+  };
+
+  useEffect(() => {
+    checkUpdate();
+    makeRequest();
+  }, []);
+
+  if (!isLoadingComplete) {
+    return null;
+  } else {
+    return (
+      //Create a Navigation Stack between Tabs and "FirstScreen"
+      <SafeAreaProvider>
+        <NavigationContainer independent={true}>
+          <Stack.Navigator initialRouteName={route}>
+            <Stack.Screen
+              name="FirstScreen"
+              options={{ headerShown: false }}
+              component={FirstScreen}
+            />
+            <Stack.Screen
+              name="Tabs"
+              initialParams={{ colorScheme: colorScheme }}
+              options={{ headerShown: false }}
+              component={Navigation}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+        <StatusBar />
+      </SafeAreaProvider>
+    );
+  }
+}
