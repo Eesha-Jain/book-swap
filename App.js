@@ -20,13 +20,13 @@ export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
-  //Display "FirstScreen" page if user's first time on app. Otherwise, navigate to the "Home" page
+  //Display "WelcomScreen" page if user's first time on app. Otherwise, navigate to the "Home" page
   const makeRequest = async () => {
     storage.getItem("firsttime").then((item) => {
       if (item) {
         setRoute("Tabs");
       } else {
-        setRoute("FirstScreen");
+        setRoute("WelcomScreen");
       }
     });
   };

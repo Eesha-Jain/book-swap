@@ -10,7 +10,7 @@ import {
 
 const win = Dimensions.get("window");
 
-function welcomeScreen(props) {
+function welcomeScreen({ navigation: { navigate } }) {
   const nextPage = false;
   return (
     <View style={[styles.container, styles.flex]}>
@@ -30,7 +30,9 @@ function welcomeScreen(props) {
               marginBottom: 40,
             },
           ]}
-          onPress={() => {}}
+          onPress={() => {
+            navigate("ShowProfile");
+          }}
         >
           <Text style={styles.buttonText}>Create Profile</Text>
         </Pressable>

@@ -70,28 +70,28 @@ export default function BottomTabNavigator() {
           headerShown: false,
         }}
       />
-     <BottomTab.Screen
-     name="EditProfile"
-     component={TabFourNavigator}
-     options={{
-       tabBarIcon: ({ color }) => (
-         <Ionicons name="person-outline" size={24} color={color} />
-       ),
-       headerShown: false,
-     }}
-   />
+      <BottomTab.Screen
+        name="EditProfile"
+        component={TabFourNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="person-outline" size={24} color={color} />
+          ),
+          headerShown: false,
+        }}
+      />
 
-<BottomTab.Screen
-     name="SwipingScren"
-     component={TabFiveNavigator}
-     options={{
-       tabBarIcon: ({ color }) => (
-         <Ionicons name="person-outline" size={24} color={color} />
-       ),
-       headerShown: false,
-     }}
-   />
- </BottomTab.Navigator>
+      <BottomTab.Screen
+        name="SwipingScren"
+        component={TabFiveNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="person-outline" size={24} color={color} />
+          ),
+          headerShown: false,
+        }}
+      />
+    </BottomTab.Navigator>
   );
 }
 
@@ -154,7 +154,7 @@ function TabFourNavigator() {
 
 const TabFiveStack = createStackNavigator();
 
-function TabFiveNavigator() {``
+function TabFiveNavigator() {
   return (
     <TabFiveStack.Navigator>
       <TabFiveStack.Screen
@@ -165,4 +165,3 @@ function TabFiveNavigator() {``
     </TabFiveStack.Navigator>
   );
 }
-
