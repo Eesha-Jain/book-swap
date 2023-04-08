@@ -6,7 +6,6 @@ const win = Dimensions.get("window");
 
 function Preferences(props) {
   const [nonFiction, fiction, textBook] = useState(false);
-// 
   return <View style={styles.container}>
 <Text>Preferences</Text>
 <Text>Type of Books: </Text>

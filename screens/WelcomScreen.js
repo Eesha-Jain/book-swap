@@ -8,11 +8,10 @@ import {
   Pressable,
 } from "react-native";
 
-// TEST
-
 const win = Dimensions.get("window");
 
 function welcomeScreen(props) {
+  const nextPage = false;
   return (
     <View style={[styles.container, styles.flex]}>
       <View style={styles.innerContainer}>
