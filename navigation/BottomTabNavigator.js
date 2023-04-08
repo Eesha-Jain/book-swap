@@ -13,9 +13,14 @@ import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
 import { View } from "react-native";
 
-import TabOneScreen from "../screens/Search";
-import TabTwoScreen from "../screens/Messages";
-import TabThreeScreen from "../screens/Profile";
+import TabOneScreen from "../screens/Preferences";
+import TabTwoScreen from "../screens/AddBooks";
+import TabThreeScreen from "../screens/ShowProfile";
+import TabFourScreen from "../screens/EditProfile";
+import TabFiveScreen from "../screens/SwipingPage";
+import TabSixScreen from "../screens/MessagePage";
+import TabSevenScreen from "../screens/Menu";
+import TabEightScreen from "../screens/Library";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -23,7 +28,7 @@ const BottomTab = createBottomTabNavigator();
 export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
-      initialRouteName="Profile"
+      initialRouteName="WelcomeScreen"
       screenOptions={{
         tabBarActiveTintColor: "#D29B0C",
         tabBarInactiveTintColor: "#876305",
@@ -36,7 +41,7 @@ export default function BottomTabNavigator() {
       }}
     >
       <BottomTab.Screen
-        name="Search"
+        name="Preferences"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -46,7 +51,7 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="Messages"
+        name="AddBook"
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -56,7 +61,7 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="Profile"
+        name="ShowProfile"
         component={TabThreeNavigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -65,7 +70,28 @@ export default function BottomTabNavigator() {
           headerShown: false,
         }}
       />
-    </BottomTab.Navigator>
+     <BottomTab.Screen
+     name="EditProfile"
+     component={TabFourNavigator}
+     options={{
+       tabBarIcon: ({ color }) => (
+         <Ionicons name="person-outline" size={24} color={color} />
+       ),
+       headerShown: false,
+     }}
+   />
+
+<BottomTab.Screen
+     name="SwipingScren"
+     component={TabFiveNavigator}
+     options={{
+       tabBarIcon: ({ color }) => (
+         <Ionicons name="person-outline" size={24} color={color} />
+       ),
+       headerShown: false,
+     }}
+   />
+ </BottomTab.Navigator>
   );
 }
 
@@ -77,9 +103,9 @@ function TabOneNavigator() {
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
-        name="Search"
+        name="Preferences"
         component={TabOneScreen}
-        options={{ headerTitle: "Search", headerShown: false }}
+        options={{ headerTitle: "Preferences", headerShown: false }}
       />
     </TabOneStack.Navigator>
   );
@@ -91,9 +117,9 @@ function TabTwoNavigator() {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
-        name="Messages"
+        name="AddBooks"
         component={TabTwoScreen}
-        options={{ headerTitle: "Messages", headerShown: false }}
+        options={{ headerTitle: "AddBooks", headerShown: false }}
       />
     </TabTwoStack.Navigator>
   );
@@ -105,10 +131,38 @@ function TabThreeNavigator() {
   return (
     <TabThreeStack.Navigator>
       <TabThreeStack.Screen
-        name="Profile"
+        name="ShowProfile"
         component={TabThreeScreen}
-        options={{ headerTitle: "Profile", headerShown: false }}
+        options={{ headerTitle: "ShowProfile", headerShown: false }}
       />
     </TabThreeStack.Navigator>
   );
 }
+const TabFourStack = createStackNavigator();
+
+function TabFourNavigator() {
+  return (
+    <TabFourStack.Navigator>
+      <TabFourStack.Screen
+        name="EditProfile"
+        component={TabFourScreen}
+        options={{ headerTitle: "EditProfile", headerShown: false }}
+      />
+    </TabFourStack.Navigator>
+  );
+}
+
+const TabFiveStack = createStackNavigator();
+
+function TabFiveNavigator() {``
+  return (
+    <TabFiveStack.Navigator>
+      <TabFiveStack.Screen
+        name="SwipingPage"
+        component={TabFiveScreen}
+        options={{ headerTitle: "SwipingPage", headerShown: false }}
+      />
+    </TabFiveStack.Navigator>
+  );
+}
+
