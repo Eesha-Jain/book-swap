@@ -8,7 +8,7 @@ import * as Updates from "expo-updates";
 import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 
-import FirstScreen from "./screens/FirstScreen";
+import welcomeScreen from "./screens/WelcomScreen";
 import Navigation from "./navigation";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -20,13 +20,13 @@ export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
-  //Display "FirstScreen" page if user's first time on app. Otherwise, navigate to the "Home" page
+  //Display "WelcomScreen" page if user's first time on app. Otherwise, navigate to the "Home" page
   const makeRequest = async () => {
     storage.getItem("firsttime").then((item) => {
       if (item) {
         setRoute("Tabs");
       } else {
-        setRoute("FirstScreen");
+        setRoute("WelcomScreen");
       }
     });
   };
@@ -56,9 +56,9 @@ export default function App() {
         <NavigationContainer independent={true}>
           <Stack.Navigator initialRouteName={route}>
             <Stack.Screen
-              name="FirstScreen"
+              name="WelcomScreen"
               options={{ headerShown: false }}
-              component={FirstScreen}
+              component={welcomeScreen}
             />
             <Stack.Screen
               name="Tabs"

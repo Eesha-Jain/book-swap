@@ -10,7 +10,8 @@ import {
 
 const win = Dimensions.get("window");
 
-function FirstScreen(props) {
+function welcomeScreen({ navigation: { navigate } }) {
+  const nextPage = false;
   return (
     <View style={[styles.container, styles.flex]}>
       <View style={styles.innerContainer}>
@@ -29,7 +30,9 @@ function FirstScreen(props) {
               marginBottom: 40,
             },
           ]}
-          onPress={() => {}}
+          onPress={() => {
+            navigate("Tabs");
+          }}
         >
           <Text style={styles.buttonText}>Create Profile</Text>
         </Pressable>
@@ -77,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstScreen;
+export default welcomeScreen;
