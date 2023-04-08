@@ -8,6 +8,8 @@ import {
   Pressable,
 } from "react-native";
 
+// TEST
+
 const win = Dimensions.get("window");
 
 function welcomeScreen(props) {
