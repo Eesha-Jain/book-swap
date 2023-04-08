@@ -70,16 +70,7 @@ export default function BottomTabNavigator() {
           headerShown: false,
         }}
       />
-      <BottomTab.Screen
-        name="EditProfile"
-        component={TabFourNavigator}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="person-outline" size={24} color={color} />
-          ),
-          headerShown: false,
-        }}
-      />
+      
 
       <BottomTab.Screen
         name="SwipingScren"
@@ -89,6 +80,39 @@ export default function BottomTabNavigator() {
             <Ionicons name="person-outline" size={24} color={color} />
           ),
           headerShown: false,
+        }}
+      />
+
+<BottomTab.Screen
+        name="MessgaePage"
+        component={TabSixNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="person-outline" size={24} color={color} />
+          ),
+          headerShown: false,
+        }}
+      />
+
+<BottomTab.Screen
+        name="Menu"
+        component={TabSevenNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="person-outline" size={24} color={color} />
+          ),
+          headerShown: false,
+        }}
+      />
+    
+  <BottomTab.Screen
+      name="Library"
+      component={TabEightNavigator}
+      options={{
+        tabBarIcon: ({ color }) => (
+          <Ionicons name="person-outline" size={24} color={color} />
+        ),
+        headerShown: false,
         }}
       />
     </BottomTab.Navigator>
@@ -163,5 +187,33 @@ function TabFiveNavigator() {
         options={{ headerTitle: "SwipingPage", headerShown: false }}
       />
     </TabFiveStack.Navigator>
+  );
+}
+
+const TabSixStack = createStackNavigator();
+function TabSixNavigator() {
+  return (
+    <TabSixStack.Navigator>
+      <TabSixStack.Screen name="MessagePage" component={TabSixScreen} />
+    </TabSixStack.Navigator>
+  );
+}
+
+const TabSevenStack = createStackNavigator();
+function TabSevenNavigator() {
+  return (
+    <TabSevenStack.Navigator>
+      <TabSevenStack.Screen name="Menue" component={TabSevenScreen} />
+    </TabSevenStack.Navigator>
+  );
+}
+
+
+const TabEightStack = createStackNavigator();
+function TabEightNavigator() {
+  return (
+    <TabEightStack.Navigator>
+      <TabEightStack.Screen name="Library" component={TabEightScreen} />
+    </TabEightStack.Navigator>
   );
 }
