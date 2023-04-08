@@ -28,7 +28,7 @@ const BottomTab = createBottomTabNavigator();
 export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
-      initialRouteName="WelcomeScreen"
+      initialRouteName="ShowProfile"
       screenOptions={{
         tabBarActiveTintColor: "#D29B0C",
         tabBarInactiveTintColor: "#876305",

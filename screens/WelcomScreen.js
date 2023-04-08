@@ -31,7 +31,7 @@ function welcomeScreen({ navigation: { navigate } }) {
             },
           ]}
           onPress={() => {
-            navigate("ShowProfile");
+            navigate("Tabs");
           }}
         >
           <Text style={styles.buttonText}>Create Profile</Text>
