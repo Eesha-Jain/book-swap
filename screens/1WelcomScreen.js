@@ -10,7 +10,7 @@ import {
 
 const win = Dimensions.get("window");
 
-function FirstScreen(props) {
+function welcomeScreen(props) {
   return (
     <View style={[styles.container, styles.flex]}>
       <View style={styles.innerContainer}>
@@ -77,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstScreen;
+export default welcomeScreen;

@@ -3,7 +3,7 @@ import { StyleSheet, View, Dimensions, Text, Image } from "react-native";
 
 const win = Dimensions.get("window");
 
-function Profile(props) {
+function addBooks(props) {
   return <View style={styles.container}></View>;
 }
 
@@ -15,4 +15,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Profile;
+export default addBooks;
