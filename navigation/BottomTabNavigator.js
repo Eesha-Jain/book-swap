@@ -194,7 +194,11 @@ const TabSixStack = createStackNavigator();
 function TabSixNavigator() {
   return (
     <TabSixStack.Navigator>
-      <TabSixStack.Screen name="MessagePage" component={TabSixScreen} />
+      <TabSixStack.Screen
+      name="MessagePage"
+      component={TabSixScreen}
+      options={{ headerTitle: "MessagePage", headerShown: false }}
+    />
     </TabSixStack.Navigator>
   );
 }
@@ -203,7 +207,11 @@ const TabSevenStack = createStackNavigator();
 function TabSevenNavigator() {
   return (
     <TabSevenStack.Navigator>
-      <TabSevenStack.Screen name="Menue" component={TabSevenScreen} />
+      <TabSevenStack.Screen 
+      name="Menue"
+      component={TabSevenScreen}
+      options={{ headerTitle: "Menue", headerShown: false }}
+    />
     </TabSevenStack.Navigator>
   );
 }
@@ -213,7 +221,12 @@ const TabEightStack = createStackNavigator();
 function TabEightNavigator() {
   return (
     <TabEightStack.Navigator>
-      <TabEightStack.Screen name="Library" component={TabEightScreen} />
-    </TabEightStack.Navigator>
+      <TabEightStack.Screen 
+      name="Library"
+      component={TabSevenScreen}
+      options={{ headerTitle: "Library", headerShown: false }}
+    />
+  
+  </TabEightStack.Navigator>
   );
 }
