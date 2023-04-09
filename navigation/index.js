@@ -7,7 +7,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
 import BottomTabNavigator from "./BottomTabNavigator";
-import TopTabNavigator from "./TopTabNavigator";
 
 export default function Navigation({ colorScheme }) {
   return <RootNavigator />;
@@ -25,12 +24,5 @@ function RootNavigator() {
   );
 }
 
-const Stacks = createStackNavigator();
-function RootNavigator() {
-  return (
-    <Stacks.Navigator screenOptions={{ headerShown: false }}>
-      <Stacks.Screen name="Root" component={TopTabNavigator} />
-    </Stacks.Navigator>
-  );
-}
+
 

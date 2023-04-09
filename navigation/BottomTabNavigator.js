@@ -223,7 +223,7 @@ function TabEightNavigator() {
     <TabEightStack.Navigator>
       <TabEightStack.Screen 
       name="Library"
-      component={TabSevenScreen}
+      component={TabEightScreen}
       options={{ headerTitle: "Library", headerShown: false }}
     />
   
