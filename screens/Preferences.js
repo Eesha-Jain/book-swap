@@ -1,43 +1,51 @@
-import React, { Component } from "react";
+import React, { Component,
+  useState,
+ } from "react";
+
 import {
   StyleSheet,
   View,
   Dimensions,
   Text,
   Image,
-  useState,
+  Button,
 } from "react-native";
 
 const win = Dimensions.get("window");
 
 function Preferences(props) {
-  const [nonFiction, fiction, textBook] = useState(false);
+  const nonFiction = useState(false);
+  const fiction = useState(false);
+  const textBook = useState(false);
   return (
     <View style={styles.container}>
       <Text>Preferences</Text>
       <Text>Type of Books: </Text>
       <Button
         //Non-Fiction Preference
+        
         onPress={() => {
-          nonFiction(true);
+          setnonFiction(true);
         }}
-        disabled={NonFiction}
-        title={NonFiction ? "Non-Fiction Selected" : "Non-Fiction"}
+        disabled={nonFiction}
+        title={nonFiction ? "Non-Fiction Selected" : "Non-Fiction"}
+        
       />
 
       <Button
         //Fiction Preference
         onPress={() => {
-          fiction(true);
+          setfiction(true);
         }}
         disabled={fiction}
         title={fiction ? "Fiction Selected" : "Fiction"}
+        
       />
 
       <Button
         //TextBook Preference
         onPress={() => {
-          textBook(true);
+          settextBook(true);
         }}
         disabled={textBook}
         title={textBook ? "Textbooks Selected" : "Textbooks"}
@@ -47,10 +55,38 @@ function Preferences(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  flex: {
     alignItems: "center",
-    backgroundColor: "white",
+    justifyContent: "center",
+  },
+  container: {
+    backgroundColor: "#7A3030",
     height: win.height,
+    fontFamily: "Inter",
+  },
+  innerContainer: {
+    padding: 30,
+    paddingTop: 50,
+    paddingBottom: 50,
+    backgroundColor: "white",
+    width: win.width,
+  },
+  header: {
+    fontSize: 40,
+    textAlign: "center",
+    fontFamily: "Inter-Bold",
+  },
+  button: {
+    backgroundColor: "#D9D9D9",
+    padding: 11,
+  },
+  buttonText: {
+    textAlign: "center",
+    fontSize: 15,
+  },
+  image: {
+    width: 120,
+    height: 120,
   },
 });
 
