@@ -1,5 +1,5 @@
 import React, { Component,
-  useState,
+  useState
  } from "react";
 
 import {
@@ -9,14 +9,14 @@ import {
   Text,
   Image,
   Button,
+  Pressable,
 } from "react-native";
 
 const win = Dimensions.get("window");
-
-function Preferences(props) {
-  const nonFiction = useState(false);
-  const fiction = useState(false);
-  const textBook = useState(false);
+let nonFiction=false;
+let fiction=false;
+let textBook= false;
+function Preferences({ navigation: { navigate } }, props) {
   return (
     <View style={styles.container}>
       <Text>Preferences</Text>
@@ -25,7 +25,7 @@ function Preferences(props) {
         //Non-Fiction Preference
         
         onPress={() => {
-          setnonFiction(true);
+          nonFiction=true;
         }}
         disabled={nonFiction}
         title={nonFiction ? "Non-Fiction Selected" : "Non-Fiction"}
@@ -35,7 +35,7 @@ function Preferences(props) {
       <Button
         //Fiction Preference
         onPress={() => {
-          setfiction(true);
+          fiction=true;
         }}
         disabled={fiction}
         title={fiction ? "Fiction Selected" : "Fiction"}
@@ -45,11 +45,28 @@ function Preferences(props) {
       <Button
         //TextBook Preference
         onPress={() => {
-          settextBook(true);
+          textBook=true;
         }}
         disabled={textBook}
         title={textBook ? "Textbooks Selected" : "Textbooks"}
-      />
+
+
+        />
+        <Pressable
+        style={[
+          styles.button,
+          {
+            marginBottom: 40,
+          },
+        ]}
+        onPress={() => {
+          navigate("Tabs");
+        }}
+      >
+        <Text style={styles.buttonText}>Save</Text>
+      </Pressable>
+
+      
     </View>
   );
 }
