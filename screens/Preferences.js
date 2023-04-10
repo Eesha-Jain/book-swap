@@ -38,7 +38,7 @@ function Preferences({ navigation: { navigate } }, props) {
           fiction=true;
         }}
         disabled={fiction}
-        title={fiction ? "Fiction Selected" : "Fiction"}
+        title={fiction ? "Fiction Selected" : "Fction"}
         
       />
 
@@ -60,7 +60,7 @@ function Preferences({ navigation: { navigate } }, props) {
           },
         ]}
         onPress={() => {
-          navigate("Tabs");
+          navigate("AddBooks");
         }}
       >
         <Text style={styles.buttonText}>Save</Text>

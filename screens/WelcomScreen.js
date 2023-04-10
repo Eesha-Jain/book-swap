@@ -10,7 +10,7 @@ import {
 
 const win = Dimensions.get("window");
 
-function welcomeScreen({ navigation: { navigate } }) {
+function WelcomeScreen({ navigation: { navigate } }) {
   const nextPage = false;
   return (
     <View style={[styles.container, styles.flex]}>
@@ -80,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default welcomeScreen;
+export default WelcomeScreen;
