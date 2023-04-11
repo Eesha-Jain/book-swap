@@ -28,7 +28,7 @@ const BottomTab = createBottomTabNavigator();
 export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
-      initialRouteName="ShowProfile"
+      initialRouteName="ShowProfileScreen"
       screenOptions={{
         tabBarActiveTintColor: "#D29B0C",
         tabBarInactiveTintColor: "#876305",
@@ -41,54 +41,59 @@ export default function BottomTabNavigator() {
       }}
     >
       <BottomTab.Screen
-        name="Preferences"
+        name="PreferencesScreen"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="magnify" size={24} color={color} />
           ),
           headerShown: false,
+          tabBarLabel: "Preferences",
         }}
       />
       <BottomTab.Screen
-        name="AddBook"
+        name="AddBookScreen"
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <AntDesign name="message1" size={24} color={color} />
           ),
           headerShown: false,
+          tabBarLabel: "Add Book",
         }}
       />
       <BottomTab.Screen
-        name="ShowProfile"
+        name="ShowProfileScreen"
         component={TabThreeNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="person-outline" size={24} color={color} />
           ),
           headerShown: false,
+          tabBarLabel: "Show Profile",
         }}
       />
       <BottomTab.Screen
-        name="EditProfile"
+        name="EditProfileScreen"
         component={TabFourNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="person-outline" size={24} color={color} />
           ),
           headerShown: false,
+          tabBarLabel: "Edit Profile",
         }}
       />
 
       <BottomTab.Screen
-        name="SwipingScren"
+        name="SwipingScreen"
         component={TabFiveNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="person-outline" size={24} color={color} />
           ),
           headerShown: false,
+          tabBarLabel: "Swipe",
         }}
       />
     </BottomTab.Navigator>
