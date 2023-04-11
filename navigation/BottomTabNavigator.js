@@ -74,18 +74,6 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="EditProfileScreen"
-        component={TabFourNavigator}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="person-outline" size={24} color={color} />
-          ),
-          headerShown: false,
-          tabBarLabel: "Edit Profile",
-        }}
-      />
-
-      <BottomTab.Screen
         name="SwipingScreen"
         component={TabFiveNavigator}
         options={{
@@ -94,6 +82,40 @@ export default function BottomTabNavigator() {
           ),
           headerShown: false,
           tabBarLabel: "Swipe",
+        }}
+      />
+
+      <BottomTab.Screen
+        name="MessgaePage"
+        component={TabSixNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="person-outline" size={24} color={color} />
+          ),
+          headerShown: false,
+          tabBarLabel: "Messages",
+        }}
+      />
+
+      <BottomTab.Screen
+        name="Menu"
+        component={TabSevenNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="person-outline" size={24} color={color} />
+          ),
+          headerShown: false,
+        }}
+      />
+
+      <BottomTab.Screen
+        name="Library"
+        component={TabEightNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="person-outline" size={24} color={color} />
+          ),
+          headerShown: false,
         }}
       />
     </BottomTab.Navigator>
@@ -168,5 +190,44 @@ function TabFiveNavigator() {
         options={{ headerTitle: "SwipingPage", headerShown: false }}
       />
     </TabFiveStack.Navigator>
+  );
+}
+
+const TabSixStack = createStackNavigator();
+function TabSixNavigator() {
+  return (
+    <TabSixStack.Navigator>
+      <TabSixStack.Screen
+        name="MessagePage"
+        component={TabSixScreen}
+        options={{ headerTitle: "MessagePage", headerShown: false }}
+      />
+    </TabSixStack.Navigator>
+  );
+}
+
+const TabSevenStack = createStackNavigator();
+function TabSevenNavigator() {
+  return (
+    <TabSevenStack.Navigator>
+      <TabSevenStack.Screen
+        name="Menue"
+        component={TabSevenScreen}
+        options={{ headerTitle: "Menue", headerShown: false }}
+      />
+    </TabSevenStack.Navigator>
+  );
+}
+
+const TabEightStack = createStackNavigator();
+function TabEightNavigator() {
+  return (
+    <TabEightStack.Navigator>
+      <TabEightStack.Screen
+        name="Library"
+        component={TabEightScreen}
+        options={{ headerTitle: "Library", headerShown: false }}
+      />
+    </TabEightStack.Navigator>
   );
 }

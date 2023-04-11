@@ -23,3 +23,6 @@ function RootNavigator() {
     </Stack.Navigator>
   );
 }
+
+
+
