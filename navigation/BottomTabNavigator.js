@@ -15,8 +15,7 @@ import { View } from "react-native";
 
 import TabOneScreen from "../screens/Preferences";
 import TabTwoScreen from "../screens/AddBooks";
-import TabThreeScreen from "../screens/ShowProfile";
-import TabFourScreen from "../screens/EditProfile";
+import TabThreeScreen from "../screens/Profile";
 import TabFiveScreen from "../screens/SwipingPage";
 import TabSixScreen from "../screens/MessagePage";
 import TabSevenScreen from "../screens/Menu";
@@ -28,7 +27,7 @@ const BottomTab = createBottomTabNavigator();
 export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
-      initialRouteName="ShowProfileScreen"
+      initialRouteName="ProfileScreen"
       screenOptions={{
         tabBarActiveTintColor: "#D29B0C",
         tabBarInactiveTintColor: "#876305",
@@ -63,14 +62,14 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="ShowProfileScreen"
+        name="ProfileScreen"
         component={TabThreeNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="person-outline" size={24} color={color} />
           ),
           headerShown: false,
-          tabBarLabel: "Show Profile",
+          tabBarLabel: "Profile",
         }}
       />
       <BottomTab.Screen
@@ -158,24 +157,11 @@ function TabThreeNavigator() {
   return (
     <TabThreeStack.Navigator>
       <TabThreeStack.Screen
-        name="ShowProfile"
+        name="Profile"
         component={TabThreeScreen}
-        options={{ headerTitle: "ShowProfile", headerShown: false }}
+        options={{ headerTitle: "Profile", headerShown: false }}
       />
     </TabThreeStack.Navigator>
-  );
-}
-const TabFourStack = createStackNavigator();
-
-function TabFourNavigator() {
-  return (
-    <TabFourStack.Navigator>
-      <TabFourStack.Screen
-        name="EditProfile"
-        component={TabFourScreen}
-        options={{ headerTitle: "EditProfile", headerShown: false }}
-      />
-    </TabFourStack.Navigator>
   );
 }
 

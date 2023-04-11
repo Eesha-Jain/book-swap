@@ -13,7 +13,7 @@ import storage from "@react-native-async-storage/async-storage";
 
 const win = Dimensions.get("window");
 
-function EditProfileScreen(props) {
+function ShowProfileScreen({ navigation: { navigate } }) {
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("");
   const [books, setBooks] = useState("");
@@ -21,9 +21,9 @@ function EditProfileScreen(props) {
   const [awards, setAwards] = useState([]);
 
   const images = {
-    badge: require("../assets/awards/badge.png"),
-    patch: require("../assets/awards/patch.png"),
-    trophy: require("../assets/awards/trophy.png"),
+    badge: require("../../assets/awards/badge.png"),
+    patch: require("../../assets/awards/patch.png"),
+    trophy: require("../../assets/awards/trophy.png"),
   };
 
   useEffect(() => {
@@ -63,7 +63,7 @@ function EditProfileScreen(props) {
               }}
             >
               <Image
-                source={require("../assets/profilePic.png")}
+                source={require("../../assets/profilePic.png")}
                 style={[styles.img]}
               />
               <View style={{ marginLeft: 15, marginTop: 15 }}>
@@ -78,6 +78,9 @@ function EditProfileScreen(props) {
                     padding: 5,
                     alignSelf: "flex-start",
                   }}
+                  onPress={() => {
+                    navigate("EditProfile");
+                  }}
                 >
                   <Text style={{ color: "#D29B0C", fontSize: 18 }}>
                     Edit Profile
@@ -91,7 +94,11 @@ function EditProfileScreen(props) {
 
       <View style={{ marginLeft: 20, marginBottom: 30 }}>
         <Text style={{ fontSize: 30, color: "#D29B0C" }}>Bio</Text>
-        <Text style={{ fontSize: 18, color: "#D29B0C" }}>{bio}</Text>
+        {bio && bio != "" ? (
+          <Text style={{ fontSize: 18, color: "#D29B0C" }}>{bio}</Text>
+        ) : (
+          <Text style={{ fontSize: 18, color: "#D29B0C" }}>None</Text>
+        )}
       </View>
 
       <View
@@ -194,4 +201,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EditProfileScreen;
+export default ShowProfileScreen;

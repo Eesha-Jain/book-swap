@@ -26,7 +26,7 @@ function WelcomeScreen({ navigation: { navigate } }) {
     });
     await storage.setItem("username", username);
     await storage.setItem("firsttime", "false");
-    await storage.setItem("bio", "None");
+    await storage.setItem("bio", "");
     await storage.setItem("friends", "0");
     await storage.setItem("books", "0");
     await storage.setItem(
