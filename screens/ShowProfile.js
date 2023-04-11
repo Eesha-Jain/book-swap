@@ -13,7 +13,7 @@ import storage from "@react-native-async-storage/async-storage";
 
 const win = Dimensions.get("window");
 
-function ShowProfileScreen(props) {
+function ShowProfileScreen({ navigation: { navigate } }) {
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("");
   const [books, setBooks] = useState("");
@@ -77,6 +77,9 @@ function ShowProfileScreen(props) {
                     backgroundColor: "#A73918",
                     padding: 5,
                     alignSelf: "flex-start",
+                  }}
+                  onPress={() => {
+                    navigate("EditProfileScreen");
                   }}
                 >
                   <Text style={{ color: "#D29B0C", fontSize: 18 }}>
