@@ -10,7 +10,7 @@ export default [
     iconName: 'library-outline'
   }, 
   { 
-    name: 'Messages', 
+    name: 'MessagePage', 
     iconType: 'AntDesign', 
     iconName: 'message1'
   }, 
