@@ -14,13 +14,13 @@ function swipingPage({ navigation: { navigate } }, props) {
           <Image source={require('/Users/mariea/Technovation/book-swap/screens/Books/IMG_2335_21024_1.png')}
             style = {{ width: 100, height: 150 }}/>
           </TouchableOpacity> 
-            
+          <Text>Enders Game, Fiction, Damaged</Text>
             
             <TouchableOpacity onPress={() => {navigate("MessagePage");}}>
             <Image source={require('/Users/mariea/Technovation/book-swap/screens/Books/EnderGame_Small.png')}
             style = {{ width: 100, height: 150 }}/>
           </TouchableOpacity>
-
+          <Text>Carival, Fiction, Perfect</Text>
           
             
             </ScrollView>
