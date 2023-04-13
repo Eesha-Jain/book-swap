@@ -17,7 +17,7 @@ function swipingPage({ navigation: { navigate } }, props) {
             
             
             <TouchableOpacity onPress={() => {navigate("MessagePage");}}>
-            <Image source={require('/Users/mariea/Technovation/book-swap/screens/Books/IMG_2334.png')}
+            <Image source={require('/Users/mariea/Technovation/book-swap/screens/Books/EnderGame_Small.png')}
             style = {{ width: 100, height: 150 }}/>
           </TouchableOpacity>
 
