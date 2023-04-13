@@ -30,9 +30,7 @@ function WelcomeScreen({ navigation: { navigate } }) {
               marginBottom: 40,
             },
           ]}
-          onPress={() => {
-            navigate("Tabs");
-          }}
+          onPress={() => {navigate("Tabs");}}
         >
           <Text style={styles.buttonText}>Create Profile</Text>
         </Pressable>
