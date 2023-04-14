@@ -24,11 +24,11 @@ function swipingPage({ navigation: { navigate } }, props) {
             }}
           >
             <Image
-              source={require("../assets/Books/IMG_2335_21024_1.png")}
+              source={require("../assets/Books/MicrosoftTeams-image (4).png")}
               style={{ width: 100, height: 150 }}
             />
           </TouchableOpacity>
-          <Text>Enders Game, Fiction, Damaged</Text>
+          <Text>Unfinished Nation, History, Used</Text>
 
           <TouchableOpacity
             onPress={() => {
@@ -36,11 +36,13 @@ function swipingPage({ navigation: { navigate } }, props) {
             }}
           >
             <Image
-              source={require("../assets/Books/EnderGame_Small.png")}
+              source={require("../assets/Books/MicrosoftTeams-image (5).png")}
               style={{ width: 100, height: 150 }}
             />
           </TouchableOpacity>
-          <Text>Carival, Fiction, Perfect</Text>
+          <Text>Chemistry, Chemistry, Used</Text>
+
+
         </ScrollView>
       </View>
     </View>
