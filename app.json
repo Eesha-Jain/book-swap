@@ -1,12 +1,10 @@
 {
   "expo": {
-    "name": "Book Swap",
+    "name": "book-swap",
     "slug": "book-swap",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "privacy": "unlisted",
-    "description": "Swapping books with people",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -14,34 +12,22 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/7355a8bb-1b94-4a06-ba9e-fc4575db20d2"
+      "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.eeja.bookswap"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.eeja.bookswap"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "7355a8bb-1b94-4a06-ba9e-fc4575db20d2"
-      }
-    },
-    "owner": "eeja",
-    "runtimeVersion": {
-      "policy": "sdkVersion"
     }
   }
 }

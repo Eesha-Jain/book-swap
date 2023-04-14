@@ -1,6 +1,6 @@
 export default [
   {
-    name: "Profile",
+    name: "Home",
     iconType: "Ionicons",
     iconName: "person-outline",
   },
@@ -10,17 +10,12 @@ export default [
     iconName: "library-outline",
   },
   {
-    name: "MessagePage",
+    name: "Messages",
     iconType: "AntDesign",
     iconName: "message1",
   },
   {
-    name: "Find Books",
-    iconType: "AntDesign",
-    iconName: "search1",
-  },
-  {
-    name: "Settings",
+    name: "Preferences",
     iconType: "Feather",
     iconName: "settings",
   },

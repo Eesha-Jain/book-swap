@@ -1,39 +1,19 @@
-import React, { Component } from "react";
-import { StyleSheet, View, Dimensions, Text, Image } from "react-native";
-
-const win = Dimensions.get("window");
-
-function addBooks(props) {
-  return <View style={styles.container}></View>;
-}
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    backgroundColor: "white",
-    height: win.height,
-  },
-});
-
-export default addBooks;
-
-
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import React, { useState } from "react";
+import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 
 export default function App() {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [condition, setCondition] = useState('');
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [condition, setCondition] = useState("");
 
   const handleAddBook = () => {
     // Here you can add the logic to save the book information to a bookshelf or database
     console.log(`Added book: ${title} by ${author} (${condition})`);
     // Clear the inputs after adding the book
-    setTitle('');
-    setAuthor('');
-    setCondition('');
-  }
+    setTitle("");
+    setAuthor("");
+    setCondition("");
+  };
 
   return (
     <View style={styles.container}>
@@ -56,10 +36,7 @@ export default function App() {
         value={condition}
         onChangeText={setCondition}
       />
-      <Button
-        title="Add book"
-        onPress={handleAddBook}
-      />
+      <Button title="Add book" onPress={handleAddBook} />
     </View>
   );
 }
@@ -67,22 +44,22 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
     padding: 20,
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 4,
     padding: 10,
     marginBottom: 10,
-    width: '100%',
+    width: "100%",
   },
 });

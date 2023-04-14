@@ -10,22 +10,20 @@ const Stack = createStackNavigator();
 
 function Profile(props) {
   return (
-    <NavigationContainer independent={true}>
-      <Stack.Navigator initialRouteName="ShowProfile">
-        <Stack.Screen
-          name="ShowProfile"
-          options={{ headerShown: false }}
-          component={ShowProfile}
-        />
-        <Stack.Screen
-          name="EditProfile"
-          options={{
-            headerShown: false,
-          }}
-          component={EditProfile}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator initialRouteName="ShowProfile">
+      <Stack.Screen
+        name="ShowProfile"
+        options={{ headerShown: false }}
+        component={ShowProfile}
+      />
+      <Stack.Screen
+        name="EditProfile"
+        options={{
+          headerShown: false,
+        }}
+        component={EditProfile}
+      />
+    </Stack.Navigator>
   );
 }
 

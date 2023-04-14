@@ -3,11 +3,7 @@
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
 
-import {
-  Ionicons,
-  AntDesign,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+import { Ionicons, AntDesign, MaterialIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
@@ -18,7 +14,6 @@ import TabTwoScreen from "../screens/AddBooks";
 import TabThreeScreen from "../screens/Profile";
 import TabFiveScreen from "../screens/SwipingPage";
 import TabSixScreen from "../screens/MessagePage";
-import TabSevenScreen from "../screens/Menu";
 import TabEightScreen from "../screens/Library";
 
 const BottomTab = createBottomTabNavigator();
@@ -39,17 +34,6 @@ export default function BottomTabNavigator() {
         },
       }}
     >
-      <BottomTab.Screen
-        name="PreferencesScreen"
-        component={TabOneNavigator}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="magnify" size={24} color={color} />
-          ),
-          headerShown: false,
-          tabBarLabel: "Preferences",
-        }}
-      />
       <BottomTab.Screen
         name="AddBookScreen"
         component={TabTwoNavigator}
@@ -77,44 +61,10 @@ export default function BottomTabNavigator() {
         component={TabFiveNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <Ionicons name="person-outline" size={24} color={color} />
+            <MaterialIcons name="swipe" size={24} color={color} />
           ),
           headerShown: false,
           tabBarLabel: "Swipe",
-        }}
-      />
-
-<BottomTab.Screen
-        name="MessagePage"
-        component={TabSixNavigator}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="person-outline" size={24} color={color} />
-          ),
-          headerShown: false,
-          tabBarLabel: "Messages",
-        }}
-      />
-
-      <BottomTab.Screen
-        name="Menu"
-        component={TabSevenNavigator}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="person-outline" size={24} color={color} />
-          ),
-          headerShown: false,
-        }}
-      />
-
-      <BottomTab.Screen
-        name="Library"
-        component={TabEightNavigator}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="person-outline" size={24} color={color} />
-          ),
-          headerShown: false,
         }}
       />
     </BottomTab.Navigator>
@@ -189,19 +139,6 @@ function TabSixNavigator() {
         options={{ headerTitle: "MessagePage", headerShown: false }}
       />
     </TabSixStack.Navigator>
-  );
-}
-
-const TabSevenStack = createStackNavigator();
-function TabSevenNavigator() {
-  return (
-    <TabSevenStack.Navigator>
-      <TabSevenStack.Screen
-        name="Menue"
-        component={TabSevenScreen}
-        options={{ headerTitle: "Menue", headerShown: false }}
-      />
-    </TabSevenStack.Navigator>
   );
 }
 

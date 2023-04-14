@@ -11,7 +11,7 @@ import {
 
 const win = Dimensions.get("window");
 
-function swipingPage({ navigation: { navigate } }, props) {
+function SwipingPage({ navigation: { navigate } }, props) {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -24,7 +24,7 @@ function swipingPage({ navigation: { navigate } }, props) {
             }}
           >
             <Image
-              source={require("../assets/Books/MicrosoftTeams-image (4).png")}
+              source={require("../assets/Books/USHistory.png")}
               style={{ width: 100, height: 150 }}
             />
           </TouchableOpacity>
@@ -36,13 +36,11 @@ function swipingPage({ navigation: { navigate } }, props) {
             }}
           >
             <Image
-              source={require("../assets/Books/MicrosoftTeams-image (5).png")}
+              source={require("../assets/Books/Chemistry.png")}
               style={{ width: 100, height: 150 }}
             />
           </TouchableOpacity>
           <Text>Chemistry, Chemistry, Used</Text>
-
-
         </ScrollView>
       </View>
     </View>
@@ -85,4 +83,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default swipingPage;
+export default SwipingPage;
