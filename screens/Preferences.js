@@ -14,15 +14,15 @@ import {
 import { TextInput } from "react-native-gesture-handler";
 
 const win = Dimensions.get("window");
-//let nonFiction=false;
-//let fiction=false;
-//let textBook= false;
 function Preferences({ navigation: { navigate } }, props) {
-  //what book type you want vareriables
-  const [nonFiction, setNonFiction] = useState(false);
-  const [textBook, setTextBook] = useState(false);
-  const [fiction, setFiction] = useState(false);
-//what condition you want book to be in variables 
+  //what book type you want variables
+  const [Math, setMath] = useState(false);
+  const [English, setEnglish] = useState(false);
+  const [History, setHistory] = useState(false);
+  const [Physics, setPhysics] = useState(false);
+  const [Chemistry, setChemistry] = useState(false);
+  const [Biology, setBiology] = useState(false);
+//what condition you want textbook to be in variables 
   const [damaged, setDamaged] = useState(false)
   const [used, setUsed] = useState(false)
   const [perfect, setperfect] = useState(false)
@@ -31,39 +31,62 @@ function Preferences({ navigation: { navigate } }, props) {
   return (
     <View style={[styles.container, styles.flex]}>
       <View style={styles.innerContainer}>
-        <Text style={styles.header}>Preferences</Text>
+        <Text style={styles.header}>Subject</Text>
 
         <Text>Type of Books:</Text>
       
       <Button
-        //Non-Fiction Preference
+        //Math Preference
         onPress={() => {
-          setNonFiction((current) => !current);
+          setMath((current) => !current);
         }}
         //disabled={!nonFiction}
-        title={nonFiction ? "Non-Fiction" : "Non-Fiction Selected"}
+        title={Math ? "Math" : "Math Selected"}
         
       />
 
       <Button
-        //Fiction Preference
+        //English Preference
         onPress={() => {
-          setFiction((current) => !current);
+          setEnglish((current) => !current);
         }}
         //disabled={!fiction}
-        title={fiction ? "Fiction" : "Fiction Selected"}
+        title={English ? "English" : "English Selected"}
         
       />
 
       <Button
         //TextBook Preference
         onPress={() => {
-          setTextBook((current) => !current);
+          setHistory((current) => !current);
         }}
         //disabled={!textBook}
-        title={textBook ? "Textbooks" : "Textbooks Selected"}
+        title={History ? "History" : "History Selected"}
         />
-        <Text>What condition do you want the books to be in?</Text>
+          
+      <Button
+        //English Preference
+        onPress={() => {
+          setPhysics((current) => !current);
+        }}
+        title={Physics ? "Physics" : "Physics Selected"}
+
+<Button
+        //English Preference
+        onPress={() => {
+          setChemistry((current) => !current);
+        }}
+        title={chemistry ? "Chemistry" : "Chemistry Selected"}
+
+<Button
+        //English Preference
+        onPress={() => {
+          setBiology((current) => !current);
+        }}
+        //disabled={!fiction}
+        title={Biology ? "Biology" : "Biology Selected"}
+
+        <Text>What condition do you want the textbooks to be in?</Text>
         <Button
         //want books damaged?
         onPress={() => {
