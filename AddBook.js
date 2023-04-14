@@ -1,24 +1,69 @@
-// Define the bookshelf as an empty array
-let bookshelf = [];
+Copy code
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
-// Define a function that prompts the user to enter information about a book and add it to bookeshel
-function addBook() {
-    // Prompt user to enter title of the book
-    let title = prompt("Enter he title of the book:");
+export default function App() {
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [condition, setCondition] = useState('');
 
-    // Prompt user to enter author of the book
-    let author = prompt("Enter the author of the book:");
+  const handleAddBook = () => {
+    // Here you can add the logic to save the book information to a bookshelf or database
+    console.log(`Added book: ${title} by ${author} (${condition})`);
+    // Clear the inputs after adding the book
+    setTitle('');
+    setAuthor('');
+    setCondition('');
+  }
 
-    // Prompt user to enter the condition of the book
-    let condition = prompt("Is the book new, undamages, slight damage");
-
-    // Create an object that represents the book and add it to bookshelf array
-    let book = {title: title, author: author, year: year };
-    bookshelf.push(book);
-
-    // Alert user that book has been added to the bookshelf
-    alert(`"${title}" by ${author} has been added to the bookshelf.`);
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Add a new book to your bookshelf</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Title"
+        value={title}
+        onChangeText={setTitle}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Author"
+        value={author}
+        onChangeText={setAuthor}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Condition"
+        value={condition}
+        onChangeText={setCondition}
+      />
+      <Button
+        title="Add book"
+        onPress={handleAddBook}
+      />
+    </View>
+  );
 }
 
-// Call the addBook function to add a book to the bookshelf
-addBook();
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 4,
+    padding: 10,
+    marginBottom: 10,
+    width: '100%',
+  },
+});
