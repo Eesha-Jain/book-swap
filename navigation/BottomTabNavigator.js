@@ -84,8 +84,8 @@ export default function BottomTabNavigator() {
         }}
       />
 
-      <BottomTab.Screen
-        name="MessgaePage"
+<BottomTab.Screen
+        name="MessagePage"
         component={TabSixNavigator}
         options={{
           tabBarIcon: ({ color }) => (
