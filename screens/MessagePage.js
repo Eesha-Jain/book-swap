@@ -1,10 +1,33 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Dimensions, Text, Image } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Dimensions,
+  Text,
+  Image,
+  Pressable,
+} from "react-native";
 
 const win = Dimensions.get("window");
 
-function MessagePage(props) {
-  return <View style={styles.container}></View>;
+function messagePage(props) {
+  return (
+    <View style={styles.container}>
+      <Pressable
+        style={[
+          styles.button,
+          {
+            marginTop: 10,
+          },
+        ]}
+        onPress={() => {
+       navigate("Menu");
+      }}
+      >
+      </Pressable>;
+      </View>
+    );
+  
 }
 
 const styles = StyleSheet.create({
@@ -13,6 +36,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     height: win.height,
   },
+  button: {
+    backgroundColor: "#a91239",
+    padding: 10,
+  }
 });
 
-export default MessagePage;
+export default messagePage;
