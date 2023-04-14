@@ -56,7 +56,7 @@ import LibraryScreen from './screens/Library';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import MessageScreen from './screens/MessagePage';
+import MessagePageScreen from './screens/MessagePage';
 import DrawerItems from './constants/DrawerItems'; 
 
 const Drawer = createDrawerNavigator();
@@ -82,3 +82,55 @@ export default function App() {
 </NavigationContainer>
  );
 }
+
+<Drawer.Screen
+           key={drawer.name}
+           name={drawer.name}
+           options={{
+           drawerIcon:({person-outline})=>
+            drawer.iconType==='Ionicons' ?
+<Ionicons
+                 name={drawer.person-outline}
+                 size={24}
+                 color={focused ? "#e91e63" : "black"}
+             />
+           :
+           drawer.iconType==='Ionicons' ?
+<Ionicons
+               name={drawer.library-outline}
+               size={24}
+               color={focused ? "#e91e63" : "black"}
+             />
+           :
+<AntDesign
+               name={drawer.message1}
+               size={24}
+               color={focused ? "#e91e63" : "black"}
+             />
+           :
+<AntDesign
+               name={drawer.search1}
+               size={24}
+               color={focused ? "#e91e63" : "black"}
+             />
+           :
+<Feather
+               name={drawer.settings}
+               size={24}
+               color={focused ? "#e91e63" : "black"}
+             />
+           :
+<Feather
+               name={drawer.help-circle}
+               size={24}
+               color={focused ? "#e91e63" : "black"}
+             />
+           component={
+             drawer.name==='Profile' ? ProfileScreen
+               : drawer.name==='Library' ? LibraryScreen
+                 : drawer.name==='Messages' ? MessagePageScreen
+                   : Find BooksScreen
+                      : SettingsScreen
+                        : HelpScreen
+           }
+         />
