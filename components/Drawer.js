@@ -3,7 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import DrawerItems from "./DrawerItems";
 
-const Drawer = createDrawerNavigator();
+const Drawer=createDrawerNavigator();
 
 export default function App() {
  return (
@@ -28,8 +28,6 @@ import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import MessagePageScreen from './screens/MessagePage';
 import DrawerItems from './constants/DrawerItems'; 
-
-const Drawer = createDrawerNavigator();
 
 export default function App() {
  return (
