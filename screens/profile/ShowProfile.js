@@ -9,6 +9,7 @@ import {
   Pressable,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import Drawer from "../components/Drawer";
 import storage from "@react-native-async-storage/async-storage";
 
 const win = Dimensions.get("window");
@@ -50,6 +51,7 @@ function ShowProfileScreen({ navigation: { navigate } }) {
 
   return (
     <View style={styles.container}>
+      <Drawer />
       <View style={{ height: 200, marginBottom: 10 }}>
         <View style={styles.profileTop}>
           <View style={styles.leftContainer}></View>
