@@ -7,11 +7,35 @@ import {
   Image,
   Pressable,
 } from "react-native";
+import storage from "@react-native-async-storage/async-storage";
+const {
+  uniqueNamesGenerator,
+  adjectives,
+  colors,
+  animals,
+} = require("unique-names-generator");
 
 const win = Dimensions.get("window");
 
 function WelcomeScreen({ navigation: { navigate } }) {
-  const nextPage = false;
+  async function getStarted() {
+    let username = uniqueNamesGenerator({
+      dictionaries: [adjectives, animals, colors],
+      length: 2,
+      separator: "-",
+    });
+    await storage.setItem("username", username);
+    await storage.setItem("firsttime", "false");
+    await storage.setItem("bio", "");
+    await storage.setItem("friends", "0");
+    await storage.setItem("books", "0");
+    await storage.setItem(
+      "awards",
+      JSON.stringify(["badge", "patch", "trophy"])
+    );
+    navigate("Tabs");
+  }
+
   return (
     <View style={[styles.container, styles.flex]}>
       <View style={styles.innerContainer}>
@@ -30,7 +54,7 @@ function WelcomeScreen({ navigation: { navigate } }) {
               marginBottom: 40,
             },
           ]}
-          onPress={() => {navigate("Tabs");}}
+          onPress={getStarted}
         >
           <Text style={styles.buttonText}>Create Profile</Text>
         </Pressable>
