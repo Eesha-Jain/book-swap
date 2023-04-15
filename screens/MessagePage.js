@@ -10,17 +10,20 @@ import {
 
 const win = Dimensions.get("window");
 
-function MessagePage(props) {
+function messagePage(props) {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
+       <Text style={styles.largerText}>
+          It's a Match!
+        </Text>
         <Text style={styles.startingText}>
           Contact +1(800)859-5339 to begin talking!
         </Text>
-        <Text style={styles.largerText}>It's a match!</Text>
-      </View>
-    </View>
-  );
+     </View>    
+  </View>
+    );
+  
 }
 
 const styles = StyleSheet.create({
@@ -29,26 +32,23 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     height: win.height,
   },
-  box: {
+  innerContainer: {
     alignItems: "center",
-    backgroundColor: "D4D4D4",
-    borderColor: "black",
-    borderWidth: 2,
-    marginBottom: 80,
-    width: "90%",
+    width: "85%",
+    backgroundColor: "white",
   },
   largerText: {
-    fontSize: 22,
+    fontSize: 33,
     fontFamily: "Inter",
-    alignText: "center",
-    marginBottom: 70,
+    textAlign: "center",
+    marginTop: 70,
   },
   startingText: {
-    fontSize: 15,
+    fontSize: 25,
     fontFamily: "Inter-Bold",
-    alignText: "center",
-    marginBottom: 120,
+    textAlign: "center",
+    marginTop: 80,
   },
 });
 
-export default MessagePage;
+export default messagePage;
