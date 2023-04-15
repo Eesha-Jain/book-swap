@@ -1,11 +1,33 @@
 import React, { FC, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View, TextInput, Button } from "react-native";
-import { Icon } from 'react-native-elements';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  TextInput,
+  Button,
+} from "react-native";
+import { Icon } from "react-native-elements";
 
 export default function App() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [condition, setCondition] = useState("");
+  const [visible, setVisible] = useState(false);
+
+  const toggleDropdown = () => {
+    setVisible(!visible);
+  };
+
+  const renderDropdown = () => {
+    if (visible) {
+      return (
+        <Text style={styles.dropdown}>
+          This is where the dropdown will be rendered.
+        </Text>
+      );
+    }
+  };
 
   const handleAddBook = () => {
     // Here you can add the logic to save the book information to a bookshelf or database
@@ -31,68 +53,35 @@ export default function App() {
         value={author}
         onChangeText={setAuthor}
       />
-      interface Props {
-  label: string;
-}
-
-const Dropdown: FC<Props> = ({ label }) => {
-  const [visible, setVisible] = useState(false);
-
-  const toggleDropdown = () => {
-    setVisible(!visible);
-  };
-
-  const renderDropdown = () => {
-    if (visible) {
-      return (
-          <Text style={styles.dropdown}>
-            This is where the dropdown will be rendered.
-          </Text>
-      );
-    }
-  };
-
-  return (
-    <TouchableOpacity
-      style={styles.button}
-      onPress={toggleDropdown}
-    >
-      {renderDropdown()}
-      <Text style={styles.buttonText}>{label}</Text>
-      <Icon type='font-awesome' name='chevron-down'/>
-    </TouchableOpacity>
-  );
-}
-
-const styles = StyleSheet.create({
-  button: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#efefef',
-    height: 50,
-    width: '90%',
-    paddingHorizontal: 10,
-    zIndex: 1,
-  },
-  buttonText: {
-    flex: 1,
-    textAlign: 'center',
-  },
-  dropdown: {
-    position: 'absolute',
-    backgroundColor: '#fff',
-    top: 50,
-  },
-});
-
-export default Dropdown;
-      />
+      <TouchableOpacity style={styles.button} onPress={toggleDropdown}>
+        {renderDropdown()}
+        <Text style={styles.buttonText}>Test</Text>
+        <Icon type="font-awesome" name="chevron-down" />
+      </TouchableOpacity>
       <Button title="Add Book" onPress={handleAddBook} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  button: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#efefef",
+    height: 50,
+    width: "90%",
+    paddingHorizontal: 10,
+    zIndex: 1,
+  },
+  buttonText: {
+    flex: 1,
+    textAlign: "center",
+  },
+  dropdown: {
+    position: "absolute",
+    backgroundColor: "#fff",
+    top: 50,
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",
