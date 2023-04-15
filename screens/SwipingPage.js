@@ -18,13 +18,19 @@ function SwipingPage({ navigation: { navigate } }) {
     {
       img: require("../assets/Books/USHistory.png"),
       title: "Unfinished Nation",
-      subject: "History",
+      author: "Brinkley",
       condition: "Used",
     },
     {
       img: require("../assets/Books/Chemistry.png"),
       title: "Chemistry",
-      subject: "Chemistry",
+      author: "Zumdahl",
+      condition: "Used",
+    },
+    {
+      img: require("../assets/Books/advancedChem.jpg"),
+      title: "Advanced Chemistry",
+      author: "Clugston",
       condition: "Used",
     },
   ];
@@ -49,7 +55,7 @@ function SwipingPage({ navigation: { navigate } }) {
             Title: {books[index].title}
           </Text>
           <Text style={{ textAlign: "center", color: "#D29B0C", fontSize: 16 }}>
-            Subject: {books[index].subject}
+            Author: {books[index].author}
           </Text>
           <Text
             style={{
@@ -61,24 +67,6 @@ function SwipingPage({ navigation: { navigate } }) {
           >
             Condition: {books[index].condition}
           </Text>
-          <Pressable
-            style={{
-              backgroundColor: "#A73918",
-              padding: 10,
-              width: "100%",
-              borderRadius: 50,
-              alignSelf: "flex-start",
-            }}
-            onPress={() => {
-              navigate("Messages");
-            }}
-          >
-            <Text
-              style={{ color: "#D29B0C", fontSize: 18, textAlign: "center" }}
-            >
-              It's a Match! Begin Messaging...
-            </Text>
-          </Pressable>
           <View
             style={{
               flexDirection: "row",
@@ -86,57 +74,84 @@ function SwipingPage({ navigation: { navigate } }) {
               alignItems: "center",
             }}
           >
-            {index != 0 ? (
-              <Pressable
+            <Pressable
+              style={{
+                marginTop: 20,
+                opacity: index != 0 ? 1 : 0,
+              }}
+              onPress={() => {
+                setIndex(index - 1);
+              }}
+            >
+              <Ionicons
+                name="arrow-back-circle"
+                size={24}
+                color="#A73918"
+                style={{ alignSelf: "center" }}
+              />
+              <Text
                 style={{
-                  marginTop: 20,
-                  alignSelf: "flex-start",
-                }}
-                onPress={() => {
-                  setIndex(index - 1);
+                  color: "#A73918",
+                  fontSize: 18,
+                  textAlign: "center",
                 }}
               >
-                <Ionicons name="arrow-back-circle" size={24} color="#A73918" />
-                <Text
-                  style={{
-                    color: "#A73918",
-                    fontSize: 18,
-                    textAlign: "center",
-                  }}
-                >
-                  Previous
-                </Text>
-              </Pressable>
-            ) : (
-              <View></View>
-            )}
+                Previous
+              </Text>
+            </Pressable>
 
-            {index != books.length - 1 && (
-              <Pressable
+            <Pressable
+              style={{
+                marginTop: 20,
+                alignSelf: "flex-start",
+              }}
+              onPress={() => {
+                navigate("Messages");
+              }}
+            >
+              <Ionicons
+                name="heart-circle"
+                size={24}
+                color="#A73918"
+                style={{ alignSelf: "center" }}
+              />
+              <Text
                 style={{
-                  marginTop: 20,
-                  alignSelf: "flex-end",
-                }}
-                onPress={() => {
-                  setIndex(index + 1);
+                  color: "#A73918",
+                  fontSize: 18,
+                  textAlign: "center",
                 }}
               >
-                <Ionicons
-                  name="arrow-forward-circle"
-                  size={24}
-                  color="#A73918"
-                />
-                <Text
-                  style={{
-                    color: "#A73918",
-                    fontSize: 18,
-                    textAlign: "center",
-                  }}
-                >
-                  Forward
-                </Text>
-              </Pressable>
-            )}
+                Like!
+              </Text>
+            </Pressable>
+
+            <Pressable
+              style={{
+                marginTop: 20,
+                alignSelf: "flex-end",
+                opacity: (index != books.length - 1) != 0 ? 1 : 0,
+              }}
+              onPress={() => {
+                setIndex(index + 1);
+              }}
+            >
+              <Ionicons
+                name="arrow-forward-circle"
+                size={24}
+                color="#A73918"
+                style={{ alignSelf: "center" }}
+              />
+              <Text
+                style={{
+                  color: "#A73918",
+                  fontSize: 18,
+                  textAlign: "center",
+                }}
+              >
+                Forward
+              </Text>
+            </Pressable>
           </View>
         </View>
       </View>
