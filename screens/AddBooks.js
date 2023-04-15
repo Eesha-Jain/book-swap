@@ -1,14 +1,16 @@
 import React, { FC, useState } from "react";
 import {
   StyleSheet,
+  ScrollView,
   Text,
   Pressable,
   View,
   TextInput,
-  Button,
+  Image,
 } from "react-native";
 import Dropdown from "../components/Dropdown";
 import * as ImagePicker from "expo-image-picker";
+import storage from "@react-native-async-storage/async-storage";
 
 export default function App({ navigation: { navigate } }) {
   const [title, setTitle] = useState("");
@@ -23,9 +25,17 @@ export default function App({ navigation: { navigate } }) {
     { label: "Perfect", value: "3" },
   ];
 
-  const handleAddBook = () => {
+  const handleAddBook = async () => {
     // Here you can add the logic to save the book information to a bookshelf or database
-    console.log(`Added book: ${title} by ${author} (${condition})`);
+    const bookArray = JSON.parse(await storage.getItem("library"));
+    bookArray.push({
+      title: title,
+      author: author,
+      condition: condition,
+      image: image,
+    });
+
+    await storage.setItem("library", JSON.stringify(bookArray));
 
     // Clear the inputs after adding the book
     setTitle("");
@@ -42,53 +52,61 @@ export default function App({ navigation: { navigate } }) {
       quality: 1,
     });
 
-    console.log(result);
-
     if (!result.canceled) {
       setImage(result.assets[0].uri);
     }
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Add a New Book to Your Library</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Title"
-        value={title}
-        onChangeText={setTitle}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Author"
-        value={author}
-        onChangeText={setAuthor}
-      />
-      <Dropdown label="Condition" data={data} onSelect={setSelected} />
-      <Button
-        style={{ color: "#D29B0C", marginTop: 20 }}
-        title="Take Picture of Book"
-        onPress={pickImage}
-      />
-      {image && (
-        <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
-      )}
-      <Pressable
-        style={{
-          backgroundColor: "#A73918",
-          padding: 5,
-          width: "100%",
-          borderRadius: 50,
-          alignSelf: "flex-start",
-          marginTop: 10,
-        }}
-        onPress={handleAddBook}
-      >
-        <Text style={{ color: "#D29B0C", fontSize: 18, textAlign: "center" }}>
-          Add Book
-        </Text>
-      </Pressable>
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.title}>Add a New Book to Your Library</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Title"
+          value={title}
+          onChangeText={setTitle}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Author"
+          value={author}
+          onChangeText={setAuthor}
+        />
+        <Dropdown label="Select Item" data={data} onSelect={setSelected} />
+        <Pressable
+          style={{
+            padding: 5,
+            width: "100%",
+            alignSelf: "flex-start",
+            marginTop: 10,
+          }}
+          onPress={pickImage}
+        >
+          <Text style={{ color: "#A73918", fontSize: 18, textAlign: "center" }}>
+            Click to Select Picture of Book
+          </Text>
+        </Pressable>
+        {image && (
+          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+        )}
+        <Pressable
+          style={{
+            backgroundColor: "#A73918",
+            padding: 5,
+            width: "100%",
+            borderRadius: 50,
+            alignSelf: "flex-start",
+            marginTop: 10,
+          }}
+          onPress={handleAddBook}
+        >
+          <Text style={{ color: "#D29B0C", fontSize: 18, textAlign: "center" }}>
+            Add Book
+          </Text>
+        </Pressable>
+      </View>
+    </ScrollView>
   );
 }
 
