@@ -136,7 +136,7 @@ function Preferences({ navigation: { navigate } }, props) {
               color: "#D29B0C",
             }}
           >
-            How far do you want to travel? (miles)
+            How far are you willing to travel? (miles)
           </Text>
           <TextInput
             placeholderTextColor="#D29B0C"
