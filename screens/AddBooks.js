@@ -36,7 +36,7 @@ export default function App() {
         value={condition}
         onChangeText={setCondition}
       />
-      <Button title="Add book" onPress={handleAddBook} />
+      <Button title="Add Book" onPress={handleAddBook} />
     </View>
   );
 }
