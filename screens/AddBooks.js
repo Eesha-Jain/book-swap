@@ -17,7 +17,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Add a new book to your bookshelf</Text>
+      <Text style={styles.title}>Add a New Book to Your Bookshelf</Text>
       <TextInput
         style={styles.input}
         placeholder="Title"
