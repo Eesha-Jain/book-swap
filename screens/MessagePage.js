@@ -13,24 +13,14 @@ const win = Dimensions.get("window");
 function messagePage(props) {
   return (
     <View style={styles.container}>
+      <Text style={styles.startingText}>
+          It's a match! Feel free to begin arranging details of the swap!
+        </Text>
       <View style={styles.box}>
         <Text style={styles.text}>
           Begin Messaging
         </Text>
       </View>
-      <Pressable
-        style={[
-          styles.button,
-          {
-            marginTop: 10,
-          },
-        ]}
-        onPress={() => {
-       navigate("Menu");
-      }}
-      >
-      <Text>testing...</Text>
-      </Pressable>
       </View>
     );
   
@@ -42,22 +32,24 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     height: win.height,
   },
-  button: {
-    backgroundColor: "#a91239",
-    padding: 10,
-  },
   box: {
     alignItems:"center",
     backgroundColor: "D4D4D4",
-    borderBottomColor: "black",
-    borderBottomWidth: 2,
-    marginBottom: 15,
+    borderColor: "black",
+    borderWidth: 2,
+    marginBottom: 80,
     width: "90%",
   },
   text: {
-    fontSize: 8,
+    fontSize: 12,
     fontFamily: "Inter",
-    marginBottom: 16,
+    marginBottom: 80,
+  },
+  startingText: {
+    fontSize: 15,
+    fontFamily: "Inter-Bold",
+    alignText: "center",
+    marginBottom: 50,
   },
 });
 
