@@ -13,11 +13,11 @@ const win = Dimensions.get("window");
 function messagePage(props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.startingText}>
-        It's a match! Feel free to begin arranging details of the swap!
-      </Text>
-      <View style={styles.box}>
-        <Text style={styles.text}>Begin Messaging</Text>
+      <View style={styles.innerContainer}>
+        <Text style={styles.startingText}>
+          Contact +1(800)859-5339 to begin talking!
+        </Text>
+        <Text style={styles.largerText}>It's a match!</Text>
       </View>
     </View>
   );
@@ -37,16 +37,17 @@ const styles = StyleSheet.create({
     marginBottom: 80,
     width: "90%",
   },
-  text: {
-    fontSize: 12,
+  largerText: {
+    fontSize: 22,
     fontFamily: "Inter",
-    marginBottom: 80,
+    alignText: "center",
+    marginBottom: 70,
   },
   startingText: {
     fontSize: 15,
     fontFamily: "Inter-Bold",
     alignText: "center",
-    marginBottom: 50,
+    marginBottom: 120,
   },
 });
 
