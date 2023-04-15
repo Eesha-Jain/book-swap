@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -12,23 +12,28 @@ import {
 const win = Dimensions.get("window");
 
 function SwipingPage({ navigation: { navigate } }, props) {
-  return (
-    <View style={styles.container}>
-      <View style={styles.innerContainer}>
-        <ScrollView>
-          <Text style={styles.header}>Books that fit your preferences</Text>
+  const books = [
+    {
+      img: require("../assets/Books/USHistory.png"),
+      title: "Unfinished Nation",
+      subject: "History",
+      condition: "Used",
+    },
+    {
+      img: require("../assets/Books/Chemistry.png"),
+      title: "Chemistry",
+      subject: "Chemistry",
+      condition: "Used",
+    },
+  ];
 
-          <TouchableOpacity
-            onPress={() => {
-              navigate("MessagePage");
-            }}
-          >
-            <Image
-              source={require("../assets/Books/USHistory.png")}
-              style={{ width: 100, height: 150 }}
-            />
-          </TouchableOpacity>
-          <Text>Unfinished Nation, History, Used</Text>
+  const [index, setIndex] = useState(0);
+
+  return (
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.innerContainer}>
+          <Text style={styles.title}>Swap Book</Text>
 
           <TouchableOpacity
             onPress={() => {
@@ -36,14 +41,27 @@ function SwipingPage({ navigation: { navigate } }, props) {
             }}
           >
             <Image
-              source={require("../assets/Books/Chemistry.png")}
-              style={{ width: 100, height: 150 }}
+              source={books[index].img}
+              style={{
+                width: 200,
+                height: 300,
+                alignSelf: "center",
+                marginBottom: 20,
+              }}
             />
           </TouchableOpacity>
-          <Text>Chemistry, Chemistry, Used</Text>
-        </ScrollView>
+          <Text style={{ textAlign: "center", fontSize: 16 }}>
+            Title: {books[index].title}
+          </Text>
+          <Text style={{ textAlign: "center", fontSize: 16 }}>
+            Subject: {books[index].subject}
+          </Text>
+          <Text style={{ textAlign: "center", fontSize: 16 }}>
+            Condition: {books[index].condition}
+          </Text>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -53,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   container: {
-    backgroundColor: "#7A3030",
+    backgroundColor: "white",
     height: win.height,
     fontFamily: "Inter",
   },
@@ -64,10 +82,11 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     width: win.width,
   },
-  header: {
-    fontSize: 20,
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
     textAlign: "center",
-    fontFamily: "Inter-Bold",
+    marginBottom: 20,
   },
   button: {
     backgroundColor: "red",

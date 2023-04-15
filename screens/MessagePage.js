@@ -14,9 +14,7 @@ function messagePage(props) {
   return (
     <View style={styles.container}>
       <View style={styles.box}>
-        <Text style={styles.text}>
-          Begin Messaging
-        </Text>
+        <Text style={styles.text}>Begin Messaging</Text>
       </View>
       <Pressable
         style={[
@@ -26,14 +24,13 @@ function messagePage(props) {
           },
         ]}
         onPress={() => {
-       navigate("Menu");
-      }}
+          navigate("Menu");
+        }}
       >
-      <Text>testing...</Text>
+        <Text>testing...</Text>
       </Pressable>
-      </View>
-    );
-  
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -47,7 +44,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   box: {
-    alignItems:"center",
+    alignItems: "center",
     backgroundColor: "D4D4D4",
     borderBottomColor: "black",
     borderBottomWidth: 2,

@@ -15,14 +15,13 @@ import storage from "@react-native-async-storage/async-storage";
 export default function App({ navigation: { navigate } }) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [condition, setCondition] = useState("");
   const [image, setImage] = useState(null);
 
   const [selected, setSelected] = useState(undefined);
   const data = [
-    { label: "Damaged", value: "1" },
-    { label: "Used", value: "2" },
-    { label: "Perfect", value: "3" },
+    { label: "Damaged", value: "Damaged" },
+    { label: "Used", value: "Used" },
+    { label: "Perfect", value: "Perfect" },
   ];
 
   const handleAddBook = async () => {
@@ -31,7 +30,7 @@ export default function App({ navigation: { navigate } }) {
     bookArray.push({
       title: title,
       author: author,
-      condition: condition,
+      condition: selected,
       image: image,
     });
 
@@ -39,8 +38,8 @@ export default function App({ navigation: { navigate } }) {
 
     // Clear the inputs after adding the book
     setTitle("");
+    setSelected("");
     setAuthor("");
-    setCondition("");
   };
 
   const pickImage = async () => {
@@ -73,7 +72,7 @@ export default function App({ navigation: { navigate } }) {
           value={author}
           onChangeText={setAuthor}
         />
-        <Dropdown label="Select Item" data={data} onSelect={setSelected} />
+        <Dropdown label="Select Condition" data={data} onSelect={setSelected} />
         <Pressable
           style={{
             padding: 5,
