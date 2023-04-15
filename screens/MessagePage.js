@@ -10,7 +10,7 @@ import {
 
 const win = Dimensions.get("window");
 
-function messagePage(props) {
+function MessagePage(props) {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -51,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default messagePage;
+export default MessagePage;
