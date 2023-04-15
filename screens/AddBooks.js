@@ -26,7 +26,7 @@ export default function App({ navigation: { navigate } }) {
 
   const handleAddBook = async () => {
     // Here you can add the logic to save the book information to a bookshelf or database
-    const bookArray = JSON.parse(await storage.getItem("library"));
+    const bookArray = JSON.parse(await storage.getItem("libraryPending"));
     bookArray.push({
       title: title,
       author: author,
@@ -34,12 +34,13 @@ export default function App({ navigation: { navigate } }) {
       image: image,
     });
 
-    await storage.setItem("library", JSON.stringify(bookArray));
+    await storage.setItem("libraryPending", JSON.stringify(bookArray));
 
     // Clear the inputs after adding the book
     setTitle("");
     setSelected("");
     setAuthor("");
+    setImage("");
   };
 
   const pickImage = async () => {

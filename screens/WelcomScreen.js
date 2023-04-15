@@ -32,7 +32,8 @@ function WelcomeScreen({ navigation: { navigate } }) {
     await storage.setItem("friends", "0");
     await storage.setItem("books", "0");
     await storage.setItem("awards", JSON.stringify(["badge"]));
-    await storage.setItem("library", JSON.stringify([]));
+    await storage.setItem("libraryPending", JSON.stringify([]));
+    await storage.setItem("libraryTraded", JSON.stringify([]));
 
     navigate("Tabs");
   }
