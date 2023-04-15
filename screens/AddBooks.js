@@ -20,11 +20,9 @@ export default function App({ navigation: { navigate } }) {
 
   const [selected, setSelected] = useState(undefined);
   const data = [
-    { label: "One", value: "1" },
-    { label: "Two", value: "2" },
-    { label: "Three", value: "3" },
-    { label: "Four", value: "4" },
-    { label: "Five", value: "5" },
+    { label: "Damaged", value: "1" },
+    { label: "Used", value: "2" },
+    { label: "Perfect", value: "3" },
   ];
 
   const handleAddBook = async () => {
