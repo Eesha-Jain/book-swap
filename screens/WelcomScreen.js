@@ -29,10 +29,7 @@ function WelcomeScreen({ navigation: { navigate } }) {
     await storage.setItem("bio", "");
     await storage.setItem("friends", "0");
     await storage.setItem("books", "0");
-    await storage.setItem(
-      "awards",
-      JSON.stringify(["badge", "patch", "trophy"])
-    );
+    await storage.setItem("awards", JSON.stringify(["badge"]));
     navigate("Tabs");
   }
 

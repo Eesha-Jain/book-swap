@@ -10,7 +10,7 @@ import {
 
 const win = Dimensions.get("window");
 
-function messagePage(props) {
+function MessagePage(props) {
   return (
     <View style={styles.container}>
       <Pressable
@@ -21,13 +21,12 @@ function messagePage(props) {
           },
         ]}
         onPress={() => {
-       navigate("Menu");
-      }}
-      >
-      </Pressable>;
-      </View>
-    );
-  
+          navigate("Menu");
+        }}
+      ></Pressable>
+      ;
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#a91239",
     padding: 10,
-  }
+  },
 });
 
-export default messagePage;
+export default MessagePage;

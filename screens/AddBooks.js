@@ -1,65 +1,30 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import "react-native-gesture-handler";
+import React, { useState, useEffect } from "react";
 
-export default function App() {
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [condition, setCondition] = useState("");
+import AddBookDetails from "./addBooks/AddBooksDetails";
+import Camera from "./addBooks/Camera";
 
-  const handleAddBook = () => {
-    // Here you can add the logic to save the book information to a bookshelf or database
-    console.log(`Added book: ${title} by ${author} (${condition})`);
-    // Clear the inputs after adding the book
-    setTitle("");
-    setAuthor("");
-    setCondition("");
-  };
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+const Stack = createStackNavigator();
 
+function AddBooks(props) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Add a New Book to Your Bookshelf</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Title"
-        value={title}
-        onChangeText={setTitle}
+    <Stack.Navigator initialRouteName="AddBookDetails">
+      <Stack.Screen
+        name="AddBookDetails"
+        options={{ headerShown: false }}
+        component={AddBookDetails}
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Author"
-        value={author}
-        onChangeText={setAuthor}
+      <Stack.Screen
+        name="Camera"
+        options={{
+          headerShown: false,
+        }}
+        component={Camera}
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Condition"
-        value={condition}
-        onChangeText={setCondition}
-      />
-      <Button title="Add Book" onPress={handleAddBook} />
-    </View>
+    </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 4,
-    padding: 10,
-    marginBottom: 10,
-    width: "100%",
-  },
-});
+export default AddBooks;
