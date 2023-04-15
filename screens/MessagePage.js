@@ -10,13 +10,11 @@ import {
 
 const win = Dimensions.get("window");
 
-function messagePage(props) {
+function MessagePage(props) {
   return (
     <View style={styles.container}>
       <View style={styles.box}>
-        <Text style={styles.text}>
-          Begin Messaging
-        </Text>
+        <Text style={styles.text}>Begin Messaging</Text>
       </View>
       <Pressable
         style={[
@@ -26,13 +24,12 @@ function messagePage(props) {
           },
         ]}
         onPress={() => {
-       navigate("Menu");
-      }}
-      >
-      </Pressable>;
-      </View>
-    );
-  
+          navigate("Menu");
+        }}
+      ></Pressable>
+      ;
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -46,7 +43,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   box: {
-    alignItems:"center",
+    alignItems: "center",
     backgroundColor: "D4D4D4",
     borderBottomColor: "black",
     borderBottomWidth: 2,
@@ -60,4 +57,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default messagePage;
+export default MessagePage;

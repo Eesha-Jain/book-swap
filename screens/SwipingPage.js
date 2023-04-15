@@ -32,7 +32,7 @@ function SwipingPage({ navigation: { navigate } }, props) {
 
           <TouchableOpacity
             onPress={() => {
-              navigate("MessagePage");
+              navigate("Messages");
             }}
           >
             <Image
