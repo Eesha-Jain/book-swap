@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     fontFamily: "Inter-Bold",
   },
   button: {
-    backgroundColor: "red",
+    backgroundColor: "#7A3030",
     padding: 11,
   },
   buttonText: {

@@ -13,6 +13,9 @@ const win = Dimensions.get("window");
 function MessagePage(props) {
   return (
     <View style={styles.container}>
+      <View style={styles.box}>
+        <Text style={styles.text}>Begin Messaging</Text>
+      </View>
       <Pressable
         style={[
           styles.button,
@@ -38,6 +41,19 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#a91239",
     padding: 10,
+  },
+  box: {
+    alignItems: "center",
+    backgroundColor: "D4D4D4",
+    borderBottomColor: "black",
+    borderBottomWidth: 2,
+    marginBottom: 15,
+    width: "90%",
+  },
+  text: {
+    fontSize: 8,
+    fontFamily: "Inter",
+    marginBottom: 16,
   },
 });
 
