@@ -19,6 +19,7 @@ function ShowProfileScreen({ navigation }) {
   const [books, setBooks] = useState("");
   const [friends, setFriends] = useState("");
   const [awards, setAwards] = useState([]);
+  const [phone, setPhone] = useState();
 
   const images = {
     badge: require("../../assets/awards/badge.png"),
@@ -39,6 +40,9 @@ function ShowProfileScreen({ navigation }) {
 
       const friendCount = await storage.getItem("friends");
       setFriends(friendCount);
+
+      const phoneNumber = await storage.getItem("phone");
+      setPhone(phoneNumber);
 
       const awardNames = await storage.getItem("awards");
       const awardNamesParsed = JSON.parse(awardNames);
@@ -100,6 +104,15 @@ function ShowProfileScreen({ navigation }) {
         <Text style={{ fontSize: 30, color: "#D29B0C" }}>Bio</Text>
         {bio && bio != "" ? (
           <Text style={{ fontSize: 18, color: "#D29B0C" }}>{bio}</Text>
+        ) : (
+          <Text style={{ fontSize: 18, color: "#D29B0C" }}>None</Text>
+        )}
+      </View>
+
+      <View style={{ marginLeft: 20, marginBottom: 30 }}>
+        <Text style={{ fontSize: 30, color: "#D29B0C" }}>Phone #</Text>
+        {phone && phone != "" ? (
+          <Text style={{ fontSize: 18, color: "#D29B0C" }}>{phone}</Text>
         ) : (
           <Text style={{ fontSize: 18, color: "#D29B0C" }}>None</Text>
         )}

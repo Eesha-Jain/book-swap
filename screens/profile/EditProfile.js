@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useState, useRef } from "react";
 import {
   StyleSheet,
   View,
@@ -11,16 +11,21 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import storage from "@react-native-async-storage/async-storage";
+import PhoneInput from "react-native-phone-number-input";
 
 const win = Dimensions.get("window");
 
 function EditProfileScreen({ navigation: { navigate } }) {
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("");
+  const [phone, setPhone] = useState(null);
+  const phoneInput = useRef(null);
 
   async function saveValues() {
     await storage.setItem("username", username);
     await storage.setItem("bio", bio);
+    await storage.setItem("phone", phone);
+
     navigate("ShowProfile");
   }
 
@@ -31,6 +36,9 @@ function EditProfileScreen({ navigation: { navigate } }) {
 
       const biography = (await storage.getItem("bio")) ?? "";
       setBio(biography);
+
+      const phoneNumber = (await storage.getItem("phone")) ?? "";
+      setPhone(phoneNumber);
     }
 
     intro();
@@ -80,6 +88,32 @@ function EditProfileScreen({ navigation: { navigate } }) {
           style={{ color: "#D29B0C", fontSize: 18 }}
           onChangeText={setBio}
           value={bio}
+        />
+      </View>
+
+      <View style={{ marginLeft: 20, marginBottom: 30 }}>
+        <Text style={{ fontSize: 30, color: "#D29B0C" }}>Phone #</Text>
+        <PhoneInput
+          ref={phoneInput}
+          defaultValue={phone}
+          defaultCode="US"
+          codeTextStyle={{ color: "#D29B0C", fontSize: 18 }}
+          textInputStyle={{ color: "#D29B0C", fontSize: 18 }}
+          containerStyle={{
+            backgroundColor: "transparent",
+            borderWidth: 2,
+            borderColor: "#D29B0C",
+          }}
+          textContainerStyle={{
+            backgroundColor: "transparent",
+            borderLeftWidth: 1,
+            borderColor: "#D29B0C",
+          }}
+          onChangeFormattedText={(text) => {
+            setPhone(text);
+          }}
+          withDarkTheme
+          withShadow
         />
       </View>
 

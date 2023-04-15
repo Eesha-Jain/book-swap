@@ -5,11 +5,12 @@ import {
   View,
   Dimensions,
   Text,
-  Image,
   Button,
+  ScrollView,
   Pressable,
 } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
+import Checkbox from "expo-checkbox";
 
 const win = Dimensions.get("window");
 function Preferences({ navigation: { navigate } }, props) {
@@ -23,115 +24,134 @@ function Preferences({ navigation: { navigate } }, props) {
   //what condition you want textbook to be in variables
   const [damaged, setDamaged] = useState(false);
   const [used, setUsed] = useState(false);
-  const [perfect, setperfect] = useState(false);
+  const [perfect, setPerfect] = useState(false);
 
   return (
-    <View style={[styles.container, styles.flex]}>
-      <View style={styles.innerContainer}>
-        <Text style={styles.header}>Subject</Text>
+    <ScrollView>
+      <View style={[styles.container, styles.flex]}>
+        <View style={styles.innerContainer}>
+          <Text style={styles.header}>Preferences</Text>
 
-        <Text>Type of Books:</Text>
+          <Text style={{ fontSize: 16, marginBottom: 10 }}>Book Subjects:</Text>
+          <View style={styles.checkboxContainer}>
+            <Checkbox
+              value={Math}
+              onValueChange={(newValue) => setMath(newValue)}
+              style={styles.checkbox}
+              color={Math ? "#A73918" : undefined}
+            />
+            <Text style={styles.label}>Math</Text>
+          </View>
+          <View style={styles.checkboxContainer}>
+            <Checkbox
+              value={English}
+              onValueChange={(newValue) => setEnglish(newValue)}
+              style={styles.checkbox}
+              color={English ? "#A73918" : undefined}
+            />
+            <Text style={styles.label}>English</Text>
+          </View>
+          <View style={styles.checkboxContainer}>
+            <Checkbox
+              value={History}
+              onValueChange={(newValue) => setHistory(newValue)}
+              style={styles.checkbox}
+              color={History ? "#A73918" : undefined}
+            />
+            <Text style={styles.label}>History</Text>
+          </View>
+          <View style={styles.checkboxContainer}>
+            <Checkbox
+              value={Physics}
+              onValueChange={(newValue) => setPhysics(newValue)}
+              style={styles.checkbox}
+              color={Physics ? "#A73918" : undefined}
+            />
+            <Text style={styles.label}>Physics</Text>
+          </View>
+          <View style={styles.checkboxContainer}>
+            <Checkbox
+              value={Chemistry}
+              onValueChange={(newValue) => setChemistry(newValue)}
+              style={styles.checkbox}
+              color={Chemistry ? "#A73918" : undefined}
+            />
+            <Text style={styles.label}>Chemistry</Text>
+          </View>
+          <View style={styles.checkboxContainer}>
+            <Checkbox
+              value={Biology}
+              onValueChange={(newValue) => setBiology(newValue)}
+              style={styles.checkbox}
+              color={Biology ? "#A73918" : undefined}
+            />
+            <Text style={styles.label}>Biology</Text>
+          </View>
 
-        <Button
-          //Math Preference
-          onPress={() => {
-            setMath((current) => !current);
-          }}
-          //disabled={!nonFiction}
-          title={Math ? "Math" : "Math Selected"}
-        />
+          <Text style={{ fontSize: 16, marginTop: 20, marginBottom: 10 }}>
+            What condition do you want the textbooks to be in?
+          </Text>
+          <View style={styles.checkboxContainer}>
+            <Checkbox
+              value={damaged}
+              onValueChange={(newValue) => setDamaged(newValue)}
+              style={styles.checkbox}
+              color={damaged ? "#A73918" : undefined}
+            />
+            <Text style={styles.label}>Damaged</Text>
+          </View>
+          <View style={styles.checkboxContainer}>
+            <Checkbox
+              value={used}
+              onValueChange={(newValue) => setUsed(newValue)}
+              style={styles.checkbox}
+              color={used ? "#A73918" : undefined}
+            />
+            <Text style={styles.label}>Used</Text>
+          </View>
+          <View style={styles.checkboxContainer}>
+            <Checkbox
+              value={perfect}
+              onValueChange={(newValue) => setPerfect(newValue)}
+              style={styles.checkbox}
+              color={perfect ? "#A73918" : undefined}
+            />
+            <Text style={styles.label}>Perfect</Text>
+          </View>
 
-        <Button
-          //English Preference
-          onPress={() => {
-            setEnglish((current) => !current);
-          }}
-          //disabled={!fiction}
-          title={English ? "English" : "English Selected"}
-        />
-
-        <Button
-          //TextBook Preference
-          onPress={() => {
-            setHistory((current) => !current);
-          }}
-          //disabled={!textBook}
-          title={History ? "History" : "History Selected"}
-        />
-
-        <Button
-          //English Preference
-          onPress={() => {
-            setPhysics((current) => !current);
-          }}
-          title={Physics ? "Physics" : "Physics Selected"}
-        />
-
-        <Button
-          //English Preference
-          onPress={() => {
-            setChemistry((current) => !current);
-          }}
-          title={Chemistry ? "Chemistry" : "Chemistry Selected"}
-        />
-
-        <Button
-          //English Preference
-          onPress={() => {
-            setBiology((current) => !current);
-          }}
-          //disabled={!fiction}
-          title={Biology ? "Biology" : "Biology Selected"}
-        />
-
-        <Text>What condition do you want the textbooks to be in?</Text>
-        <Button
-          //want books damaged?
-          onPress={() => {
-            setDamaged((current) => !current);
-          }}
-          title={damaged ? "Damaged" : "Damaged Selected"}
-        />
-
-        <Button
-          onPress={() => {
-            setUsed((current) => !current);
-          }}
-          title={used ? "Used" : "Used Selected"}
-        />
-        <Button
-          onPress={() => {
-            setperfect((current) => !current);
-          }}
-          title={perfect ? "Perfect" : "Perfect Selected"}
-        />
-
-        <Text>How far do you want to travel? in miles</Text>
-        <TextInput
-          style={{
-            height: 40,
-            borderColor: "red",
-            borderWidth: 1,
-          }}
-          defaultValue=""
-        />
-
-        <Pressable
-          //save button
-          style={[
-            styles.button,
-            {
-              marginBottom: 40,
-            },
-          ]}
-          onPress={() => {
-            navigate("AddBook");
-          }}
-        >
-          <Text style={styles.buttonText}>Save</Text>
-        </Pressable>
+          <Text style={{ fontSize: 16, marginTop: 20, marginBottom: 10 }}>
+            How far do you want to travel? (miles)
+          </Text>
+          <TextInput
+            style={{
+              height: 40,
+              borderColor: "red",
+              borderWidth: 1,
+              marginBottom: 30,
+            }}
+            defaultValue=""
+          />
+          <Pressable
+            style={{
+              backgroundColor: "#A73918",
+              padding: 5,
+              width: "100%",
+              borderRadius: 50,
+              alignSelf: "flex-start",
+            }}
+            onPress={() => {
+              navigate("AddBook");
+            }}
+          >
+            <Text
+              style={{ color: "#D29B0C", fontSize: 18, textAlign: "center" }}
+            >
+              Save
+            </Text>
+          </Pressable>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -141,19 +161,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   container: {
-    backgroundColor: "#7A3030",
-    height: win.height,
+    backgroundColor: "white",
     fontFamily: "Inter",
   },
   innerContainer: {
     padding: 30,
-    paddingTop: 50,
-    paddingBottom: 50,
+    paddingBottom: 0,
     backgroundColor: "white",
     width: win.width,
+    height: win.height,
   },
   header: {
-    fontSize: 40,
+    fontSize: 24,
+    marginBottom: 20,
     textAlign: "center",
     fontFamily: "Inter-Bold",
   },
@@ -168,6 +188,19 @@ const styles = StyleSheet.create({
   image: {
     width: 120,
     height: 120,
+  },
+  checkboxContainer: {
+    flexDirection: "row",
+    marginBottom: 5,
+  },
+  checkbox: {
+    alignSelf: "center",
+  },
+  label: {
+    marginLeft: 10,
+    margin: 0,
+    padding: 0,
+    fontSize: 16,
   },
 });
 
