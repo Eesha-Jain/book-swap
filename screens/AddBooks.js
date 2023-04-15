@@ -1,30 +1,114 @@
-import "react-native-gesture-handler";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  Pressable,
+} from "react-native";
+import * as ImagePicker from "expo-image-picker";
 
-import AddBookDetails from "./addBooks/AddBooksDetails";
-import Camera from "./addBooks/Camera";
+export default function App({ navigation: { navigate } }) {
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [condition, setCondition] = useState("");
+  const [image, setImage] = useState(null);
 
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-const Stack = createStackNavigator();
+  const handleAddBook = () => {
+    // Here you can add the logic to save the book information to a bookshelf or database
+    console.log(`Added book: ${title} by ${author} (${condition})`);
 
-function AddBooks(props) {
+    // Clear the inputs after adding the book
+    setTitle("");
+    setAuthor("");
+    setCondition("");
+  };
+
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
+  };
+
   return (
-    <Stack.Navigator initialRouteName="AddBookDetails">
-      <Stack.Screen
-        name="AddBookDetails"
-        options={{ headerShown: false }}
-        component={AddBookDetails}
+    <View style={styles.container}>
+      <Text style={styles.title}>Add a New Book to Your Library</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Title"
+        value={title}
+        onChangeText={setTitle}
       />
-      <Stack.Screen
-        name="Camera"
-        options={{
-          headerShown: false,
+      <TextInput
+        style={styles.input}
+        placeholder="Author"
+        value={author}
+        onChangeText={setAuthor}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Condition"
+        value={condition}
+        onChangeText={setCondition}
+      />
+      <Button
+        style={{ color: "#D29B0C" }}
+        title="Take Picture of Book"
+        onPress={pickImage}
+      />
+      {image && (
+        <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+      )}
+      <Pressable
+        style={{
+          backgroundColor: "#A73918",
+          padding: 5,
+          width: "100%",
+          borderRadius: 50,
+          alignSelf: "flex-start",
+          marginTop: 10,
         }}
-        component={Camera}
-      />
-    </Stack.Navigator>
+        onPress={handleAddBook}
+      >
+        <Text style={{ color: "#D29B0C", fontSize: 18, textAlign: "center" }}>
+          Add Book
+        </Text>
+      </Pressable>
+    </View>
   );
 }
 
-export default AddBooks;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: 20,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 4,
+    padding: 10,
+    marginBottom: 10,
+    width: "100%",
+  },
+});

@@ -24,12 +24,15 @@ function WelcomeScreen({ navigation: { navigate } }) {
       length: 2,
       separator: "-",
     });
+
     await storage.setItem("username", username);
     await storage.setItem("firsttime", "false");
     await storage.setItem("bio", "");
     await storage.setItem("friends", "0");
     await storage.setItem("books", "0");
     await storage.setItem("awards", JSON.stringify(["badge"]));
+    await storage.setItem("library", JSON.stringify([]));
+
     navigate("Tabs");
   }
 
