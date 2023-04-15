@@ -6,12 +6,14 @@ import {
   Text,
   Image,
   ScrollView,
+  Pressable,
   TouchableOpacity,
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 const win = Dimensions.get("window");
 
-function SwipingPage({ navigation: { navigate } }, props) {
+function SwipingPage({ navigation: { navigate } }) {
   const books = [
     {
       img: require("../assets/Books/USHistory.png"),
@@ -34,31 +36,101 @@ function SwipingPage({ navigation: { navigate } }, props) {
       <View style={styles.container}>
         <View style={styles.innerContainer}>
           <Text style={styles.title}>Swap Book</Text>
-
-          <TouchableOpacity
-            onPress={() => {
-              navigate("Messages");
+          <Image
+            source={books[index].img}
+            style={{
+              width: 200,
+              height: 200,
+              alignSelf: "center",
+              marginBottom: 20,
             }}
-          >
-            <Image
-              source={books[index].img}
-              style={{
-                width: 200,
-                height: 300,
-                alignSelf: "center",
-                marginBottom: 20,
-              }}
-            />
-          </TouchableOpacity>
+          />
           <Text style={{ textAlign: "center", fontSize: 16 }}>
             Title: {books[index].title}
           </Text>
           <Text style={{ textAlign: "center", fontSize: 16 }}>
             Subject: {books[index].subject}
           </Text>
-          <Text style={{ textAlign: "center", fontSize: 16 }}>
+          <Text style={{ textAlign: "center", fontSize: 16, marginBottom: 10 }}>
             Condition: {books[index].condition}
           </Text>
+          <Pressable
+            style={{
+              backgroundColor: "#A73918",
+              padding: 10,
+              width: "100%",
+              borderRadius: 50,
+              alignSelf: "flex-start",
+            }}
+            onPress={() => {
+              navigate("Messages");
+            }}
+          >
+            <Text
+              style={{ color: "#D29B0C", fontSize: 18, textAlign: "center" }}
+            >
+              It's a Match! Begin Messaging...
+            </Text>
+          </Pressable>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            {index != 0 ? (
+              <Pressable
+                style={{
+                  marginTop: 20,
+                  alignSelf: "flex-start",
+                }}
+                onPress={() => {
+                  setIndex(index - 1);
+                }}
+              >
+                <Ionicons name="arrow-back-circle" size={24} color="#A73918" />
+                <Text
+                  style={{
+                    color: "#A73918",
+                    fontSize: 18,
+                    textAlign: "center",
+                  }}
+                >
+                  Previous
+                </Text>
+              </Pressable>
+            ) : (
+              <View></View>
+            )}
+
+            {index != books.length - 1 && (
+              <Pressable
+                style={{
+                  marginTop: 20,
+                  alignSelf: "flex-end",
+                }}
+                onPress={() => {
+                  setIndex(index + 1);
+                }}
+              >
+                <Ionicons
+                  name="arrow-forward-circle"
+                  size={24}
+                  color="#A73918"
+                />
+                <Text
+                  style={{
+                    color: "#A73918",
+                    fontSize: 18,
+                    textAlign: "center",
+                  }}
+                >
+                  Forward
+                </Text>
+              </Pressable>
+            )}
+          </View>
         </View>
       </View>
     </ScrollView>
