@@ -17,13 +17,10 @@ function messagePage(props) {
         <Text style={styles.startingText}>
           Contact +1(800)859-5339 to begin talking!
         </Text>
-       <Text style={styles.largerText}>
-          It's a match!
-        </Text>
-     </View>    
-  </View>
-    );
-  
+        <Text style={styles.largerText}>It's a match!</Text>
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -32,15 +29,18 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     height: win.height,
   },
-  innerContainer: {
+  box: {
     alignItems: "center",
-    width: "85%",
-    backgroundColor: "white",
+    backgroundColor: "D4D4D4",
+    borderColor: "black",
+    borderWidth: 2,
+    marginBottom: 80,
+    width: "90%",
   },
   largerText: {
     fontSize: 22,
     fontFamily: "Inter",
-    alignText: 'center',
+    alignText: "center",
     marginBottom: 70,
   },
   startingText: {

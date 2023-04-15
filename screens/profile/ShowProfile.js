@@ -13,7 +13,7 @@ import storage from "@react-native-async-storage/async-storage";
 
 const win = Dimensions.get("window");
 
-function ShowProfileScreen({ navigation: { navigate } }) {
+function ShowProfileScreen({ navigation }) {
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("");
   const [books, setBooks] = useState("");
@@ -45,8 +45,12 @@ function ShowProfileScreen({ navigation: { navigate } }) {
       setAwards(awardNamesParsed);
     }
 
-    intro();
-  }, []);
+    const unsubscribe = navigation.addListener("focus", () => {
+      intro();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
@@ -79,7 +83,7 @@ function ShowProfileScreen({ navigation: { navigate } }) {
                     alignSelf: "flex-start",
                   }}
                   onPress={() => {
-                    navigate("EditProfile");
+                    navigation.navigate("EditProfile");
                   }}
                 >
                   <Text style={{ color: "#D29B0C", fontSize: 18 }}>
