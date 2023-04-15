@@ -32,7 +32,9 @@ function Preferences({ navigation: { navigate } }, props) {
         <View style={styles.innerContainer}>
           <Text style={styles.header}>Preferences</Text>
 
-          <Text style={{ fontSize: 16, marginBottom: 10 }}>Book Subjects:</Text>
+          <Text style={{ fontSize: 16, marginBottom: 10, color: "#D29B0C" }}>
+            Book Subjects:
+          </Text>
           <View style={styles.checkboxContainer}>
             <Checkbox
               value={Math}
@@ -88,7 +90,14 @@ function Preferences({ navigation: { navigate } }, props) {
             <Text style={styles.label}>Biology</Text>
           </View>
 
-          <Text style={{ fontSize: 16, marginTop: 20, marginBottom: 10 }}>
+          <Text
+            style={{
+              fontSize: 16,
+              marginTop: 20,
+              marginBottom: 10,
+              color: "#D29B0C",
+            }}
+          >
             What condition do you want the textbooks to be in?
           </Text>
           <View style={styles.checkboxContainer}>
@@ -119,15 +128,24 @@ function Preferences({ navigation: { navigate } }, props) {
             <Text style={styles.label}>Perfect</Text>
           </View>
 
-          <Text style={{ fontSize: 16, marginTop: 20, marginBottom: 10 }}>
+          <Text
+            style={{
+              fontSize: 16,
+              marginTop: 20,
+              marginBottom: 10,
+              color: "#D29B0C",
+            }}
+          >
             How far do you want to travel? (miles)
           </Text>
           <TextInput
+            placeholderTextColor="#D29B0C"
             style={{
               height: 40,
-              borderColor: "red",
+              borderColor: "#D29B0C",
               borderWidth: 1,
               marginBottom: 30,
+              paddingLeft: 5,
             }}
             defaultValue=""
           />
@@ -161,13 +179,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   container: {
-    backgroundColor: "white",
+    backgroundColor: "black",
     fontFamily: "Inter",
   },
   innerContainer: {
     padding: 30,
     paddingBottom: 0,
-    backgroundColor: "white",
+    backgroundColor: "black",
     width: win.width,
     height: win.height,
   },
@@ -176,6 +194,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: "center",
     fontFamily: "Inter-Bold",
+    color: "#D29B0C",
   },
   button: {
     backgroundColor: "#7A3030",
@@ -200,6 +219,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     margin: 0,
     padding: 0,
+    color: "#D29B0C",
     fontSize: 16,
   },
 });

@@ -34,7 +34,7 @@ const Dropdown = ({ label, data, onSelect }) => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity style={styles.item} onPress={() => onItemPress(item)}>
-      <Text>{item.label}</Text>
+      <Text style={{ color: "#D29B0C" }}>{item.label}</Text>
     </TouchableOpacity>
   );
 
@@ -67,7 +67,12 @@ const Dropdown = ({ label, data, onSelect }) => {
       <Text style={styles.buttonText}>
         {(selected && selected.label) || label}
       </Text>
-      <Icon style={styles.icon} type="font-awesome" name="chevron-down" />
+      <Icon
+        style={styles.icon}
+        type="font-awesome"
+        name="chevron-down"
+        color="#D29B0C"
+      />
     </TouchableOpacity>
   );
 };
@@ -76,22 +81,30 @@ const styles = StyleSheet.create({
   button: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#efefef",
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: "#D29B0C",
     height: 50,
     zIndex: 1,
   },
   buttonText: {
     flex: 1,
     textAlign: "center",
+    color: "#D29B0C",
   },
   icon: {
     marginRight: 10,
+    color: "#D29B0C",
   },
   dropdown: {
     position: "absolute",
-    backgroundColor: "#fff",
-    width: "100%",
+    backgroundColor: "black",
+    borderWidth: 1,
+    borderColor: "#D29B0C",
+    width: "89%",
+    alignSelf: "center",
     shadowColor: "#000000",
+    color: "#D29B0C",
     shadowRadius: 4,
     shadowOffset: { height: 4, width: 0 },
     shadowOpacity: 0.5,
@@ -103,6 +116,7 @@ const styles = StyleSheet.create({
   item: {
     paddingHorizontal: 10,
     paddingVertical: 10,
+    borderColor: "#D29B0C",
     borderBottomWidth: 1,
   },
 });

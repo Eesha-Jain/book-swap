@@ -10,45 +10,44 @@ import {
 
 const win = Dimensions.get("window");
 
-function messagePage(props) {
+function MessagePage(props) {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
-       <Text style={styles.largerText}>
-          It's a Match!
-        </Text>
+        <Text style={styles.largerText}>It's a Match!</Text>
         <Text style={styles.startingText}>
           Contact +1(800)859-5339 to begin talking!
         </Text>
-     </View>    
-  </View>
-    );
-  
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: "black",
     height: win.height,
   },
   innerContainer: {
     alignItems: "center",
     width: "85%",
-    backgroundColor: "white",
+    backgroundColor: "black",
   },
   largerText: {
     fontSize: 33,
-    fontFamily: "Inter",
+    fontFamily: "Inter-Bold",
     textAlign: "center",
     marginTop: 70,
+    color: "#D29B0C",
   },
   startingText: {
     fontSize: 25,
-    fontFamily: "Inter-Bold",
+    fontFamily: "Inter",
     textAlign: "center",
     marginTop: 80,
+    color: "#D29B0C",
   },
 });
 
-export default messagePage;
+export default MessagePage;

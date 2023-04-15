@@ -57,18 +57,20 @@ export default function App({ navigation: { navigate } }) {
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: "black" }}>
       <View style={styles.container}>
         <Text style={styles.title}>Add a New Book to Your Library</Text>
         <TextInput
           style={styles.input}
           placeholder="Title"
+          placeholderTextColor="#D29B0C"
           value={title}
           onChangeText={setTitle}
         />
         <TextInput
           style={styles.input}
           placeholder="Author"
+          placeholderTextColor="#D29B0C"
           value={author}
           onChangeText={setAuthor}
         />
@@ -112,7 +114,7 @@ export default function App({ navigation: { navigate } }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "black",
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
@@ -122,13 +124,15 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 20,
+    color: "#D29B0C",
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#D29B0C",
     borderRadius: 4,
     padding: 10,
     marginBottom: 10,
+    color: "#D29B0C",
     width: "100%",
   },
 });

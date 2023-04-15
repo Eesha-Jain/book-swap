@@ -32,7 +32,7 @@ function SwipingPage({ navigation: { navigate } }) {
   const [index, setIndex] = useState(0);
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: "black" }}>
       <View style={styles.container}>
         <View style={styles.innerContainer}>
           <Text style={styles.title}>Swap Book</Text>
@@ -45,13 +45,20 @@ function SwipingPage({ navigation: { navigate } }) {
               marginBottom: 20,
             }}
           />
-          <Text style={{ textAlign: "center", fontSize: 16 }}>
+          <Text style={{ textAlign: "center", color: "#D29B0C", fontSize: 16 }}>
             Title: {books[index].title}
           </Text>
-          <Text style={{ textAlign: "center", fontSize: 16 }}>
+          <Text style={{ textAlign: "center", color: "#D29B0C", fontSize: 16 }}>
             Subject: {books[index].subject}
           </Text>
-          <Text style={{ textAlign: "center", fontSize: 16, marginBottom: 10 }}>
+          <Text
+            style={{
+              textAlign: "center",
+              color: "#D29B0C",
+              fontSize: 16,
+              marginBottom: 10,
+            }}
+          >
             Condition: {books[index].condition}
           </Text>
           <Pressable
@@ -143,7 +150,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   container: {
-    backgroundColor: "white",
+    backgroundColor: "black",
     height: win.height,
     fontFamily: "Inter",
   },
@@ -151,13 +158,14 @@ const styles = StyleSheet.create({
     padding: 30,
     paddingTop: 50,
     paddingBottom: 50,
-    backgroundColor: "white",
+    backgroundColor: "black",
     width: win.width,
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
+    color: "#D29B0C",
     marginBottom: 20,
   },
   button: {

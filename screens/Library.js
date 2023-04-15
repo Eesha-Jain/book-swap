@@ -10,7 +10,7 @@ function Library(props) {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: "black",
     height: win.height,
   },
 });
