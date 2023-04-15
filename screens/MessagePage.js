@@ -14,7 +14,9 @@ function messagePage(props) {
   return (
     <View style={styles.container}>
       <View style={styles.box}>
-        <Text style={styles.text}>Begin messaging</Text>
+        <Text style={styles.text}>
+          Begin Messaging
+        </Text>
       </View>
       <Pressable
         style={[
@@ -49,10 +51,12 @@ const styles = StyleSheet.create({
     borderBottomColor: "black",
     borderBottomWidth: 2,
     marginBottom: 15,
+    width: "90%",
   },
   text: {
     fontSize: 8,
     fontFamily: "Inter",
+    marginBottom: 16,
   },
 });
 
