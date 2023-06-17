@@ -145,6 +145,7 @@ function Preferences({ navigation: { navigate } }, props) {
               borderColor: "#D29B0C",
               borderWidth: 1,
               marginBottom: 30,
+              color: "#D29B0C",
               paddingLeft: 5,
             }}
             defaultValue=""
@@ -158,7 +159,7 @@ function Preferences({ navigation: { navigate } }, props) {
               alignSelf: "flex-start",
             }}
             onPress={() => {
-              navigate("AddBook");
+              navigate("Home");
             }}
           >
             <Text

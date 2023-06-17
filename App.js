@@ -24,7 +24,7 @@ export default function App() {
   const makeRequest = async () => {
     storage.getItem("firsttime").then((item) => {
       if (item) {
-        setRoute("Tabs");
+        setRoute("WelcomScreen");
       } else {
         setRoute("WelcomScreen");
       }
